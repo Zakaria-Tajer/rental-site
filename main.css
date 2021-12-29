@@ -1,14 +1,14 @@
 @font-face {
     font-family: 'Nexa';
-    src: url(/gallery/Font/NexaDemo-Bold.ttf);
+    src: url(./home/Font/NexaDemo-Bold.ttf);
 }
 @font-face {
     font-family: 'Helvetica';
-    src: url(/Helvetica-Bold.ttf);
+    src: url(./home/Helvetica-Bold.ttf);
 }
 @font-face {
     font-family: 'Aaargh';
-    src: url(./Aaargh.ttf)
+    src: url(./home/Aaargh.ttf)
 }
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&family=Roboto:wght@500&display=swap');
@@ -71,7 +71,7 @@ body {
 .hero {
     width: 100%;
     height: 800px;
-    /* background-color: white; */
+    background-color: white;
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
@@ -80,7 +80,6 @@ body {
 .left-side {
     width: 50%;
     height: 80%;
-    background-color: aqua;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,12 +89,29 @@ body {
     font-size: 80px;
     font-weight: 800;
     line-height: 7vh;
+    position: relative;
+    bottom: 5%;
+    left: 20%;
+}
+.left-side p {
+    font-size: 25px;
+    position: relative;
+    right: 21%;
+    top: 20%;
+    font-family: var(--navbar);
+    font-weight: 500;
 }
 
 .right-side {
     width: 50%;
     height: 80%;
-    background-color: blueviolet;
+}
+.right-side img {
+    width: 100%;
+    margin-top: 15em;
+    position: relative;
+    /* right: 20%; */
+
 }
 
 .logos {
@@ -389,8 +405,8 @@ body {
     cursor: pointer;
 }
 .circle {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     background-color: yellowgreen;
     border-radius: 100%;
     margin-left: 30px;
@@ -400,12 +416,12 @@ body {
     align-items: center;
 }
 .circle img {
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     object-fit: cover;
 }
 .circle i {
-    font-size: 30px;
+    font-size:30px;
 }
 .cards h2 {
     margin-top: 4em;
@@ -530,7 +546,7 @@ body {
     border-radius: 20px;
     border: none;
     outline: none;
-    background-color:#adadad;
+    background-color:#CECECE;
 }
 
 .subs i {
@@ -607,14 +623,20 @@ body {
     .hero {
         width: 500px;
         height: 600px;
+        overflow: hidden;
+        margin-top: 4em;
     }
     .left-side {
         display: flex;
         align-items: center;
     }
     .left-side h1 {
-        font-size: 40px;
-        text-align: center;
+        font-size: 50px;
+    }
+    .right-side img {
+    width: 400px;
+    right: 40%;
+    bottom:20%; 
     }
     .logos {
         height:500px;
@@ -778,9 +800,20 @@ body {
 } 
 
 @media only screen and (max-width : 768px) {
+    .hero {
+        overflow: hidden;
+    }
     .wrapper-imgs {
         height: 900px;
     }
+    .left-side h1 {
+        font-size: 50px;
+        margin-right: 2.5em;
+    }
+    .right-side img{
+        width: 500px;
+        right: 20%;
+    } 
     .img-format {
         width: 230px;
     }
@@ -830,6 +863,7 @@ body {
     .swiper-button-prev {
         top: 135%;
     }
+}
+
  
 
-}
