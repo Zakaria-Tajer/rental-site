@@ -28,15 +28,12 @@
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    /* background-color: #e6e6e6; */
-    background-color: white;
-}
+
 
 .hero {
     width: 100%;
     height: 100vh;
-    background-color: aqua;
+    position:relative;
 
 }
 .hero img {
@@ -45,14 +42,33 @@ body {
     object-fit: cover;
 }
 
+.other {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.other h1 {
+    position: absolute;
+    top: 10%;
+    text-transform: uppercase;
+    font-family: var(--secondary-font);
+    font-weight: 900;
+    font-size: 30px; 
+    color: white;
+}
+
+
+
 .navbar {
-    max-width: 100%;
-    min-width: 500px;
+    min-width: 100%;
     height: 70px;
-    background-color: white;
+    position: fixed;
+    z-index: 1;
     flex: 1;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 .logo {
     flex: 0.2;
@@ -62,20 +78,35 @@ body {
 .navbar ul {
     flex: 0.7;
     display: flex;
-    align-items: center;
+    align-items: center;   
 }
 .navbar li {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    height: 20px;
+    border-radius: 20px;
     margin-left: 40px;
     list-style: none;
+}
+.navbar li:hover {
+    transition: 1s ease;
+    background-color: #24252A;
+}
+.navbar a:hover {
+    color: white;
 }
 .navbar a {
     text-decoration: none;
     font-size: 18px;
-    font-family:var(--secondary-font);
+    font-family:var(--primary-font);
+    color: #24252A;
+    font-weight: 600;
 }
 .menu {
     display: flex;
     align-items: center;
+
 }
 .menu button {
     padding: 10px 20px;
@@ -92,8 +123,9 @@ body {
     width: 300px;
     max-width: 500px;
     height: 100%;
-    background-color: blueviolet;
-    position: absolute;
+    background-color: white;
+    position: fixed;
+    /* z-index: 1; */
     right: 0;
     display: none;
 }
@@ -107,7 +139,6 @@ body {
 .close {
     width: 30px;
     height: 30px;
-    /* background-color: aliceblue; */
     margin-left: auto;
     margin-top: 40px;
     margin-right: 20px;
@@ -117,9 +148,7 @@ body {
     cursor: pointer;
     position: relative;
 }
-.close:hover {
-    background-color: gray;
-}
+
 .close::before {
     position: absolute;
     content: '';
@@ -143,7 +172,6 @@ body {
 .side-bar {
     width: 100%;
     height: 600px;
-    /* background-color: gray; */
     display: flex;
     justify-content: center;
 }
@@ -156,14 +184,16 @@ body {
     margin-top: 30px;
     list-style: none;
     border-radius: 20px;
-    width: 120px;
+    width: 200px;
+    height: 30px;
+    flex-direction: column;
 }
 .side-bar a {
     font-family: var(--secondary-font);
     text-decoration: none;
 }
 .side-bar li:hover {
-    background-color: violet;
+    background-color: #24252A;
 }
 .container {
     scroll-snap-type: y mandatory;
@@ -175,40 +205,40 @@ body {
 }
 .order {
     position: relative;
-    top:-20%;
+    top:-12%;
     display: flex;
     justify-content: center;
 }
 .order button {
     width: 300px;
-    height: 40px;
+    height: 50px;
     border-radius: 20px;
     border: none;
     outline: none;
     font-size: 17px;
     font-family: var(--secondary-font);
     cursor: pointer;
+    background-color: #24252A;
+    color: white;
+    opacity: 0.8;
 }
-.moto {
-    width: 100%;
-    height: 100vh;
+.order button:hover {
+    opacity: 1;
+    transition: 1s ease;
 }
-.moto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-
-
 
 
 @media only screen and (max-width : 480px){
     body {
+        height: 100%;
         overflow-y: scroll;
+        position: relative;
     }
     .hero {
         width: 500px;
+    }
+    .hero img {
+        background-size: cover;
     }
 
     .slide-menu {
@@ -219,7 +249,8 @@ body {
     }
     .slide-menu {
         width: 350px;
-        height: 800px;
+        height: 100%;
+        z-index: 1;
     }
     .hidden,.side-bar ul {
         display: block;
@@ -229,8 +260,27 @@ body {
         height: 200vh;
     } 
     .container section {
-        height: 100%;
+        width: 500px;
+        height: 1000px;
     }
-   
+    .order {
+        top: -25%;
+    }
+    .navbar li {
+        display: flex;
+        flex-direction: column;
+    }
     
+}
+
+@media only screen and (max-width : 1024px) {
+    .navbar ul {
+        display: none;
+    }
+    .side-bar ul {
+        display: block;
+    }
+    .hidden {
+        display: block;
+    }
 }
