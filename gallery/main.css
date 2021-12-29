@@ -183,9 +183,8 @@
     display: flex;
     margin-top: 30px;
     list-style: none;
+    width: 220px;
     border-radius: 20px;
-    width: 200px;
-    height: 30px;
     flex-direction: column;
 }
 .side-bar a {
@@ -194,6 +193,8 @@
 }
 .side-bar li:hover {
     background-color: #24252A;
+    height: 30px;
+    padding-left: 20px;
 }
 .container {
     scroll-snap-type: y mandatory;
