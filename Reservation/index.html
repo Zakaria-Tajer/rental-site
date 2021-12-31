@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Reservation</title>
+</head>
+<body>
+    <main class="hero">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="./">
+            </div>
+            <ul>
+                <li><a href="#">Motos</a></li>
+                <li><a href="#">Citadine</a></li>
+                <li><a href="#">Compact</a></li>
+                <li><a href="#">Berline</a></li>
+                <li><a href="#">Utilitaire</a></li>
+                <li><a href="#">Engin</a></li>
+                <li><a href="#">Trucks</a></li>
+            </ul>
+            <div class="menu">
+                <button id="show-menu" active>Menu</button>
+            </div>
+            <div class="slide-menu" id="slide-menu">
+                <div class="close" id="close"></div>
+                <nav class="side-bar">
+                    <ul>
+                        <div class="hidden">
+                            <li><a href="#">Motorcycle</a></li>
+                            <li><a href="#">Citadine</a></li>
+                            <li><a href="#">Compact</a></li>
+                            <li><a href="#">Berline</a></li>
+                            <li><a href="#">Commercial vehicle</a></li>
+                            <li><a href="#">construction machine</a></li>
+                            <li><a href="#">Trucks</a></li>
+                        </div>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Reservation</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </nav>
+        <div class="list-page">
+            <h1>Vehicles-List Page</h1>
+            <div class="directions">
+                <h3>Home</h3>
+                <i class="fas fa-chevron-right"></i>
+                <h3>Home</h3>
+                <i class="fas fa-chevron-right"></i>
+                <h3>Home</h3>
+            </div>
+        </div>
+    </main>
+    <section class="sales">
+        <div class="search"></div>
+        <div class="filter-wrapper">
+            <div class="filter" id="hide">
+                <div class="search-by-name">
+                    <h1>Filter</h1>
+                    <div class="down">
+                        <h3>Vehicle Name</h3>
+                        <i class="fas fa-chevron-down" id="chevron"></i>
+                    </div>
+                    <div class="input-field" id="input-field">
+                        <input type="text" placeholder="Search Vehicles By Name">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <div class="mobile-icon">
+                    <i class="fas fa-chevron-circle-right" id="chevron-right"></i>
+                </div>
+                <div class="empty"></div>
+                <div class="select">
+                    <h1>Vehicles Types</h1>
+                    <i class="fas fa-chevron-down" id="chevron"></i>
+                    <div class="check-boxes">
+                        <input type="checkbox" name="check" id="Motorcycle" onclick="verfying(this)">
+                        <h3>Motorcycle</h3>
+                    </div>
+                    <!-- ///2 -->
+                    <div class="check-boxes">
+                        <input type="checkbox" name="check" id="citadine" onclick="verfying(this)">
+                        <h3>Citadine</h3>
+                    </div>
+                    <!-- 33333/ -->
+                    <div class="check-boxes">
+                        <input type="checkbox" name="check" id="compact" onclick="verfying(this)">
+                        <h3>Compact</h3>
+                    </div>
+                    <!-- 33333/ -->
+                    <div class="check-boxes">
+                        <input type="checkbox" name="check" id="berline" onclick="verfying(this)">
+                        <h3>Berline</h3>
+                    </div>
+                    <!-- 33333/ -->
+                    <div class="check-boxes">
+                        <input type="checkbox" name="check" id="commercial" onclick="verfying(this)">
+                        <h3>Utilitaire</h3>
+                    </div>
+                    <!-- 33333/ -->
+                    <div class="check-boxes">
+                        <input type="checkbox" name="check" id="construction" onclick="verfying(this)">
+                        <h3>Engin</h3>
+                    </div>
+                    <!-- 33333/ -->
+                    <div class="check-boxes">
+                        <input type="checkbox" name="check" id="trucks" onclick="verfying(this)">
+                        <h3>Trucks</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="rent-vehicle">
+                <div class="container">
+                    <div class="img-container">
+                        <img src="./imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg" id="imgs">
+                    </div>
+                    <div class="description-container">
+                        <h1>Motorcycle</h1>
+                        <div class="reviews">
+                           <div class="left-side">
+                                <div class="text">
+                                    <h3>Reliability</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Overall quality</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Performance</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Comfort</h3>
+                                </div>
+                           </div>
+                         
+                           <div class="right-side">
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                           </div>
+                        </div>  
+                    </div>
+                    <div class="rent-side">
+                        <div class="drop">
+                            <h3>10% Off!</h3>
+                        </div>
+                        <div class="prev-price">
+                            <h3>100 Dh</h3>
+                            <div class="line"></div>
+                        </div>
+                        <div class="day-rent">
+                            <h3>90 Dh</h3>
+                        </div>
+                        <h3 class="time">1 Day</h3>
+                        <button>Rent Now</button>
+                    </div>
+                </div>
+                <!-- ////container 2 -->
+                <div class="container">
+                    <div class="img-container">
+                        <img src="./imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg" id="imgs">
+                    </div>
+                    <div class="description-container">
+                        <h1>Motorcycle</h1>
+                        <div class="reviews">
+                           <div class="left-side">
+                                <div class="text">
+                                    <h3>Reliability</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Overall quality</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Performance</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Comfort</h3>
+                                </div>
+                           </div>
+                         
+                           <div class="right-side">
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                           </div>
+                        </div>  
+                    </div>
+                    <div class="rent-side">
+                        <div class="drop">
+                            <h3>10% Off!</h3>
+                        </div>
+                        <div class="prev-price">
+                            <h3>100 Dh</h3>
+                            <div class="line"></div>
+                        </div>
+                        <div class="day-rent">
+                            <h3>90 Dh</h3>
+                        </div>
+                        <h3 class="time">1 Day</h3>
+                        <button>Rent Now</button>
+                    </div>
+                </div>
+
+
+                <!-- CONTAINER3 -->
+                <div class="container" id="rmv">
+                    <div class="img-container">
+                        <img src="./imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg" id="imgs">
+                    </div>
+                    <div class="description-container">
+                        <h1>Motorcycle</h1>
+                        <div class="reviews">
+                           <div class="left-side">
+                                <div class="text">
+                                    <h3>Reliability</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Overall quality</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Performance</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Comfort</h3>
+                                </div>
+                           </div>
+                         
+                           <div class="right-side">
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                           </div>
+                        </div>  
+                    </div>
+                    <div class="rent-side">
+                        <div class="drop">
+                            <h3>10% Off!</h3>
+                        </div>
+                        <div class="prev-price">
+                            <h3>100 Dh</h3>
+                            <div class="line"></div>
+                        </div>
+                        <div class="day-rent">
+                            <h3>90 Dh</h3>
+                        </div>
+                        <h3 class="time">1 Day</h3>
+                        <button>Rent Now</button>
+                    </div>
+                </div>
+
+                <!-- conatiner4 -->
+                <div class="container" id="rmv">
+                    <div class="img-container">
+                        <img src="./imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg" id="imgs">
+                    </div>
+                    <div class="description-container">
+                        <h1>Motorcycle</h1>
+                        <div class="reviews">
+                           <div class="left-side">
+                                <div class="text">
+                                    <h3>Reliability</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Overall quality</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Performance</h3>
+                                </div>
+                                <div class="text">
+                                    <h3>Comfort</h3>
+                                </div>
+                           </div>
+                         
+                           <div class="right-side">
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="star">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                           </div>
+                        </div>  
+                    </div>
+                    <div class="rent-side">
+                        <div class="drop">
+                            <h3>10% Off!</h3>
+                        </div>
+                        <div class="prev-price">
+                            <h3>100 Dh</h3>
+                            <div class="line"></div>
+                        </div>
+                        <div class="day-rent">
+                            <h3>90 Dh</h3>
+                        </div>
+                        <h3 class="time">1 Day</h3>
+                        <button id="rem">Rent Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    
+    <script src="index.js"></script>
+    <script src="switch.js"></script>
+    <script src="https://kit.fontawesome.com/18228bcc89.js" crossorigin="anonymous"></script>
+</body>
+</html>

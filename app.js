@@ -33,6 +33,15 @@ var swiper = new Swiper('.swiper-container', {
     });
 
 
+
+
+const reservation = document.getElementById('reservation')
+
+reservation.addEventListener('click', ()=> {
+  location.assign('../Reservation/index.html')
+})
+
+
 const first_section = document.getElementById('first-section')
 const second_section = document.getElementById('second-section')
 const Motos = document.getElementById('Motos')
