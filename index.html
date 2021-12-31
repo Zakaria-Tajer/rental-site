@@ -10,14 +10,42 @@
     <title>Home</title>
 </head>
 <body>
-    <nav class="nav">
-        <img src="#">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./">
+        </div>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="./gallery/index.html">Gallery</a></li>
-            <li><a href="./Reservation/index.html">Reservation</a></li>
-            <li><a href="./contact/index.html">Contact</a></li>
+            <li><a href="#">Motos</a></li>
+            <li><a href="#">Citadine</a></li>
+            <li><a href="#">Compact</a></li>
+            <li><a href="#">Berline</a></li>
+            <li><a href="#">Utilitaire</a></li>
+            <li><a href="#">Engin</a></li>
+            <li><a href="#">Trucks</a></li>
         </ul>
+        <div class="menu">
+            <button id="show-menu" active>Menu</button>
+        </div>
+        <div class="slide-menu" id="slide-menu">
+            <div class="close" id="close"></div>
+            <nav class="side-bar">
+                <ul>
+                    <div class="hidden">
+                        <li><a href="#">Motorcycle</a></li>
+                        <li><a href="#">Citadine</a></li>
+                        <li><a href="#">Compact</a></li>
+                        <li><a href="#">Berline</a></li>
+                        <li><a href="#">Commercial vehicle</a></li>
+                        <li><a href="#">construction machine</a></li>
+                        <li><a href="#">Trucks</a></li>
+                    </div>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="./gallery/index.html">Gallery</a></li>
+                    <li><a href="./Reservation/index.html">Reservation</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </nav>
     <main class="hero">
         <div class="left-side">
@@ -299,5 +327,6 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/18228bcc89.js" crossorigin="anonymous"></script>
     <script src="./app.js"></script>
+    <script src="./gallery/index.js"></script>
 </body>
 </html>

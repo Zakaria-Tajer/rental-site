@@ -49,11 +49,11 @@
         <div class="list-page">
             <h1>Vehicles-List Page</h1>
             <div class="directions">
-                <h3>Home</h3>
+                <h3><a href="../index.html">Home</a></h3>
                 <i class="fas fa-chevron-right"></i>
-                <h3>Home</h3>
+                <h3><a href="#">Reservation</a></h3>
                 <i class="fas fa-chevron-right"></i>
-                <h3>Home</h3>
+                <h3><a href="#">Vehicles List Page</a></h3>
             </div>
         </div>
     </main>
@@ -61,7 +61,7 @@
         <div class="search"></div>
         <div class="filter-wrapper">
             <div class="filter" id="hide">
-                <div class="search-by-name">
+                <div class="search-by-name" id="shrink">
                     <h1>Filter</h1>
                     <div class="down">
                         <h3>Vehicle Name</h3>
@@ -75,16 +75,20 @@
                 <div class="mobile-icon">
                     <i class="fas fa-chevron-circle-right" id="chevron-right"></i>
                 </div>
-                <div class="empty"></div>
-                <div class="select">
-                    <h1>Vehicles Types</h1>
-                    <i class="fas fa-chevron-down" id="chevron"></i>
-                    <div class="check-boxes">
+                <div class="empty" id="empty">
+                    <i class="fas fa-chevron-down" id="chevron-empty"></i>
+                </div>
+                <div class="select" id="select">
+                    <h3>Vehicles Types</h3>
+                    <div class="right">
+                        <i class="fas fa-chevron-down" id="chevron-select"></i>
+                    </div>
+                    <div class="check-boxes" id="check-boxes">
                         <input type="checkbox" name="check" id="Motorcycle" onclick="verfying(this)">
                         <h3>Motorcycle</h3>
                     </div>
                     <!-- ///2 -->
-                    <div class="check-boxes">
+                    <div class="check-boxes" id="check-boxes">
                         <input type="checkbox" name="check" id="citadine" onclick="verfying(this)">
                         <h3>Citadine</h3>
                     </div>
@@ -94,22 +98,22 @@
                         <h3>Compact</h3>
                     </div>
                     <!-- 33333/ -->
-                    <div class="check-boxes">
+                    <div class="check-boxes" id="check-boxes">
                         <input type="checkbox" name="check" id="berline" onclick="verfying(this)">
                         <h3>Berline</h3>
                     </div>
                     <!-- 33333/ -->
-                    <div class="check-boxes">
+                    <div class="check-boxes" id="check-boxes">
                         <input type="checkbox" name="check" id="commercial" onclick="verfying(this)">
                         <h3>Utilitaire</h3>
                     </div>
                     <!-- 33333/ -->
-                    <div class="check-boxes">
+                    <div class="check-boxes" id="check-boxes">
                         <input type="checkbox" name="check" id="construction" onclick="verfying(this)">
                         <h3>Engin</h3>
                     </div>
                     <!-- 33333/ -->
-                    <div class="check-boxes">
+                    <div class="check-boxes" id="check-boxes">
                         <input type="checkbox" name="check" id="trucks" onclick="verfying(this)">
                         <h3>Trucks</h3>
                     </div>

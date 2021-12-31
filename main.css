@@ -1,73 +1,178 @@
 @font-face {
     font-family: 'Nexa';
-    src: url(./home/Font/NexaDemo-Bold.ttf);
+    src: url(../home/Font/NexaDemo-Bold.ttf);
+}
+@font-face {
+    font-family: 'Candra';
+    src: url(../All-fonts/Candara.ttf);
 }
 @font-face {
     font-family: 'Helvetica';
-    src: url(./home/Helvetica-Bold.ttf);
-}
-@font-face {
-    font-family: 'Aaargh';
-    src: url(./home/Aaargh.ttf)
-}
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500&family=Roboto:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@700&family=IBM+Plex+Serif:wght@500&family=Roboto:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
-:root {
-    --primary-font: 'Roboto', sans-serif;
-    --sendary-font: 'Nexa';
-    --parag-font: 'Aaargh';
-    --titles: 'Helvetica';
-    --navbar: 'Lato', sans-serif;
-    --white: #fff;
+    src: url(../All-fonts/Helvetica-Bold.ttf);
 }
 
+:root {
+    --primary-font: 'Candra';
+    --secondary-font: 'Nexa';
+    --button-font: 'Helvetica';
+    --navbar: 'Lato', sans-serif;
+    --white: #fff;
+    --primary-color: #5A90B6;
+    --secondary-color: #042B54;
+}
+body {
+    background-color: white;
+    font-family: var(--primary-font);
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body {
-    /* background-color: #e6e6e6; */
-    background-color: white;
+.hero {
+    width: 100%;
+    height: 30vh;
+    background-color: cadetblue;
+    position: relative;
 }
 
-.nav {
-    background-color: white;
-    max-width: 80%;
-    min-width: 500px;
-    height: 80px;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
+.navbar {
+    min-width: 100%;
+    height: 70px;
+    position: fixed;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+.logo {
+    flex: 0.2;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    flex: 1;
-    border-radius: 20px;
 }
-
-.nav img {
-    flex: 0.2;
-    
-}
-.nav ul {
+.navbar ul {
+    flex: 0.7;
     display: flex;
-    flex: 0.3;
+    align-items: center;   
 }
-.nav li {
-    margin-left: 30px;
+.navbar li {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    border-radius: 20px;
+    margin-left: 40px;
     list-style: none;
 }
-.nav a {
+.navbar li:hover {
+    transition: 1s ease;
+    background-color: #24252A;
+}
+.navbar a:hover {
+    color: white;
+    
+}
+.navbar a {
     text-decoration: none;
-    font-size: 17px;
+    font-size: 18px;
+    font-family:var(--secondary-font);
+    color: #24252A;
     font-weight: 600;
-    font-family: var(--primary-font);
-    color: black;
+}
+.menu {
+    display: flex;
+    align-items: center;
+
+}
+.menu button {
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: var(--secondary-font);
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: var(--secondary-font);
 }
 
+.slide-menu {
+    width: 300px;
+    max-width: 500px;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    /* z-index: 1; */
+    right: 0;
+    display: none;
+}
+.slide-menu.active {
+    display: block;
+}
+.hidden {
+    display: none;
+}
+
+.close {
+    width: 30px;
+    height: 30px;
+    margin-left: auto;
+    margin-top: 40px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+}
+
+.close::before {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    transform: rotate(45deg);
+}
+.close::after {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    transform: rotate(-45deg);
+}
+.close.active {
+    display: none;
+}
+
+.side-bar {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+}
+.side-bar ul {
+    display: block;
+    margin-top: 20px;
+}
+.side-bar li {
+    display: flex;
+    margin-top: 30px;
+    list-style: none;
+    width: 220px;
+    border-radius: 20px;
+    flex-direction: column;
+}
+.side-bar a {
+    font-family: var(--secondary-font);
+    text-decoration: none;
+}
+.side-bar li:hover {
+    background-color: #24252A;
+    height: 30px;
+    padding-left: 20px;
+}
 .hero {
     width: 100%;
     height: 800px;

@@ -59,7 +59,7 @@ body {
     width: 100px;
     display: flex;
     justify-content: center;
-    height: 20px;
+    height: 30px;
     border-radius: 20px;
     margin-left: 40px;
     list-style: none;
@@ -186,6 +186,7 @@ body {
 }
 .list-page h1 {
     margin-left: 5em;
+    letter-spacing: 2px;
 }
 
 .directions {
@@ -193,14 +194,21 @@ body {
     margin-right: 10em;
     display: flex;
 }
-.directions h3 {
-    margin-left: 30px;
+.directions a {
+    opacity: 0.7;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 .directions i {
-    font-size: 20px;
+    font-size: 18px;
     margin-left: 20px;
     position: relative;
-    margin-top: 20px;
+    margin-top: 23px;
 }
 
 .sales {
@@ -220,8 +228,9 @@ body {
 }
 .filter {
     width: 20%;
-    height: 100%;
-    background-color: white;
+    height: 85%;
+    /* background-color: white; */
+    /* box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; */
     margin-left: 5em;
     position: absolute;
     border-radius: 10px;
@@ -230,25 +239,42 @@ body {
 .empty {
     width: 100%;
     height: 200px;
-    /* background-color: yellow; */
+    background-color: white;
+    display: flex;
+    justify-content: flex-end;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.empty i {
+    margin-right: 20px;
+    cursor: pointer;
+    color: #3F5EF9;
+    position: relative;
+    transform: rotate(180deg);
+    top: -80%;
 }
 
 .select {
     width: 100%;
-    height: 400px;
-    /* background-color: thistle; */
-    color: var(--secondary-color);
+    height: 410px;
+    background-color: white;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
-.select h1 {
+.select h3 {
     top: 20px;
     position: relative;
     left: 30px;
+    color:#3F5EF9;
+
 }
-.select i {
+
+.right i{
+    cursor: pointer;
+    transform: rotate(180deg);
     display: flex;
-    justify-content: flex-end;
     margin-right: 20px;
-    font-size: 20px;
+    color:#3F5EF9;
 }
 
 .check-boxes {
@@ -262,16 +288,41 @@ body {
 .check-boxes h3 {
     position: relative;
     top: 0;
+    color: gray;
 }
 #imgs.active {
     display: none;
 }
+#shrink.active {
+    height: 200px;
+}
+#shrink i.active {
+    transform: rotate(180deg);
+}
 
+.empty.active {
+    height: 110px;
+}
+.empty i.active {
+    transform: rotate(360deg);
+    top: 20%;
+}
+.select.active {
+    height: 110px;
+    overflow: hidden;
+}
+.right i.active {
+    transform: rotate(360deg);
+    display: flex;
+    justify-content: flex-end;
+}
 
 .search-by-name {
     width: 100%;
-    height: 200px;
-    /* background-color: wheat; */
+    height: 120px;
+    background-color: white;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
 
 .search-by-name h1,h3 {
@@ -283,7 +334,8 @@ body {
     margin-top: 30px;
 }
 .down {
-    color: #5A90B6;
+    color:#3F5EF9;
+
 }
 .down i{
     position: absolute;
@@ -297,14 +349,16 @@ body {
 .input-field {
     position: relative;
     top: 20%;
-    margin-left: 10px;
+    margin-left: 1.5em;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin-top: 20px;
+    display: none;
 }
 
 .input-field input {
+    border: 1px solid gray;
     width: 90%;
     height: 40px;
     padding-left: 20px;
@@ -312,9 +366,11 @@ body {
 .input-field i {
     position: relative;
     right: 30px;
+    color: gray;
 }
+/* ///////input */
 .input-field.active {
-    display: none;
+    display: block;
 }
 .rent-vehicle {
     width: 75%;
