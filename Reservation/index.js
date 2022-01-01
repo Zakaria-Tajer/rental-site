@@ -17,15 +17,42 @@ const containers = document.querySelectorAll('.container')
 const rent_btn = document.querySelectorAll('#rent-btn') 
 
 const choices = document.querySelectorAll('#choice')
+
 const choice_checked = document.querySelectorAll('#choice-checked')
+// console.log(choice_checked);
+
+
+// for (let i = 0; i < choice_checked.length; i++) {
+//     console.log(choice_checked[i]);
+// }
+
+
+
+
+
+
 
 
 const hide = document.getElementById('hide')
 const chevron_right = document.getElementById('chevron-right')
 
 const star = document.getElementById('icons-wrapper')
+const Hybrid = document.getElementById('Hybrid')
+console.log(Hybrid);
 
-console.log(choice_checked);
+const customasation = []
+
+
+
+
+
+
+
+
+
+
+
+
 
 for (let i = 0; i < rent_btn.length; i++) {
     rent_btn[i].addEventListener('click',()=> {

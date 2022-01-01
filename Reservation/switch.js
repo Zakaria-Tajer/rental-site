@@ -22,6 +22,10 @@ const prices = document.querySelectorAll('#prices')
 const price_updated = document.querySelectorAll('#prices-actual')
 const actual_price = document.querySelectorAll('#actual-price')
 const prev_price = document.querySelectorAll('#prev-price')
+const pay_btn = document.querySelectorAll('.pay-btn')
+
+
+const hide_box = document.querySelectorAll('#hide-box')
 
 
 window.onload = ()=> {
@@ -32,49 +36,73 @@ window.onload = ()=> {
         remover[2].textContent = 'Truck'
         remover[3].textContent = 'Compact'
     }
-    for (let i = 0; i < prices.length; i++) {
-        prices[i].appendChild(prev_price[i])
-        prev_price[0].textContent = '300'
-        prev_price[1].textContent = '500'
-        prev_price[2].textContent = '800'
-        prev_price[3].textContent = '500'
-    }
+
     for (let i = 0; i < price_updated.length; i++) {
         price_updated[i].appendChild(actual_price[i])
-        actual_price[0].textContent = '290'
-        actual_price[1].textContent = '490'
-        actual_price[2].textContent = '790'
-        actual_price[3].textContent = '490'
+        actual_price[0].textContent = '10 €'
+        actual_price[1].textContent = '20 €'
+        actual_price[2].textContent = '250 €'
+        actual_price[3].textContent = '14 €'
         
     }
-}
-
-function redirectPayment(){
-    window.location.assign('./payment/index.html')
+    
 }
 
 
+// for (let i = 0; i <pay_btn.length; i++) {
+//     const data = []
+//     const localStorage_data = []
+//     pay_btn[i].addEventListener('click',()=> {
+//         for (let i = 0; i < actual_price.length; i++){
+//             data.push(actual_price[i].textContent)
+//         }
 
+//             if(data[i]===data[i]){
+//                 console.log(data[i]);
+//                 localStorage_data.push(data[i]);
+//                 localStorage.setItem('price', localStorage_data)
+//                 window.location.assign('./payment/index.html')
+//             }
+//                 // localStorage.removeItem('price')
+//                 // localStorage.removeItem('discount')     
+//     })
+// }
 
-
-
-
-
-function ReplacePrices(prev,actual){
-    for (let i = 0; i < prices.length; i++) {
-        prev_price[i].textContent = `${prev}`
-        prices[i].appendChild(prev_price[i])
+function dataSrorage(Discount){
+    for (let i = 0; i < pay_btn.length; i++) {
+        const data = []
+        const localStorage_data = []
+        pay_btn[i].addEventListener('click',()=> {
+            for (let i = 0; i < actual_price.length; i++){
+                data.push(actual_price[i].textContent)
+            }
+    
+                if(data[i]===data[i]){
+                    console.log(data[i]);
+                    localStorage_data.push(data[i]);
+                    // localStorage_data.push(Discount);
+                    localStorage.setItem('price', localStorage_data)
+                    localStorage.setItem('discount', Discount)
+                    window.location.assign('./payment/index.html')
+                }
+                    // localStorage.removeItem('price')
+                    // localStorage.removeItem('discount')     
+        })
     }
+
+}
+dataSrorage()
+
+
+
+
+function ReplacePrices(actual){
     for (let i = 0; i < price_updated.length; i++) {
         actual_price[i].textContent = `${actual}`
         price_updated[i].appendChild(actual_price[i])
         
     }
 }
-
-
-const rmv = document.querySelectorAll('#rmv')
-// console.log(rmv);
 
 
 function verfying(checkbox) {
@@ -90,6 +118,8 @@ function replaceName(carName){
         append_h1[i].appendChild(remover[i])
         remover[i].textContent = `${carName}`
         // remover[i].textContent = ''
+        
+        console.log(localStorage.setItem('carName', `${carName}`))
     }
 }
 
@@ -101,9 +131,10 @@ const newImage3 = document.createElement('img')
 
 
 
-Motorcycle.addEventListener('click',()=> {    
+Motorcycle.addEventListener('click',()=> {
+    dataSrorage('7%')
     replaceName('Motorcycle')
-    ReplacePrices('300','290')
+    ReplacePrices('10 €')
     newImage.setAttribute("src", "../gallery/motorcycle/6a2081efec9a4564a93519475a0cc40a.jpg")
     newImage1.setAttribute("src", "../gallery/motorcycle/2015-Yamaha-YZF-R3.jpg")
     newImage2.setAttribute("src", "../gallery/motorcycle/bmw-k100-motorcycle-bike-side-view-4k_1536018804.jpg")
@@ -116,15 +147,18 @@ Motorcycle.addEventListener('click',()=> {
         wrapper[1].appendChild(newImage1)
         wrapper[2].appendChild(newImage2)
         wrapper[3].appendChild(newImage3)
-
+        
     }
     // history.pushState(null, null,'Motorcycle')
+    // dataSrorage('7%') 
+
 })
 
 
 citadine.addEventListener('click',()=> {
+    dataSrorage('9%')
     replaceName('citadine')
-    ReplacePrices('500','490')
+    ReplacePrices('12 €')
     newImage.setAttribute("src", "../gallery/cars/va-t-on-assister-a-la-premiere-victoire-d-un-vehicule-electrique-cette-annee-possible-si-on-en-croit-le-capital-sympathie-de-cette-petite-peugeot-photo-peugeot-1578417014.jpg")
     newImage1.setAttribute("src", "../gallery/cars/3309305.jpg")
     newImage2.setAttribute("src", "../gallery/cars/308561_original.jpg")
@@ -142,8 +176,9 @@ citadine.addEventListener('click',()=> {
 
 
 compact.addEventListener('click',()=> {
+    dataSrorage('7%')
     replaceName('Compact')
-    ReplacePrices('500','490')
+    ReplacePrices('14 €')
     newImage.setAttribute("src", "../gallery/cars/compact-imgs/990208.jpg")
     newImage1.setAttribute("src", "../gallery/cars/compact-imgs/990209.jpg")
     newImage2.setAttribute("src", "../gallery/cars/compact-imgs/carpixel.net-2019-mg-hs-uk-95849-hd.jpg")
@@ -161,7 +196,7 @@ compact.addEventListener('click',()=> {
 
 berline.addEventListener('click',()=> {
     replaceName('Berline')
-    ReplacePrices('500','490')
+    ReplacePrices('20 €')
     newImage.setAttribute("src", "../gallery/berline/Acura-Type-S-02.jpg")
     newImage1.setAttribute("src", "../gallery/berline/shad19_002_crop.jpg")
     newImage2.setAttribute("src", "../gallery/berline/S0-citadine-berline-suv-monospace-le-guide-des-categories-561286.jpg")
@@ -180,7 +215,7 @@ berline.addEventListener('click',()=> {
 })
 commercial.addEventListener('click',()=> {
     replaceName('Commercial')
-    ReplacePrices('600','590')
+    ReplacePrices('16 €')
     newImage.setAttribute("src", "../gallery/commercial/AdobeStock_243360779.jpeg")
     newImage1.setAttribute("src", "../gallery/commercial/USC80FOT115A021001.jpg")
     newImage2.setAttribute("src", "../gallery/commercial/14-transit-van.jpg")
@@ -200,7 +235,7 @@ commercial.addEventListener('click',()=> {
 
 construction.addEventListener('click',()=> {
     replaceName('Construction')
-    ReplacePrices('1000','990')
+    ReplacePrices('900 €')
     newImage.setAttribute("src", "../gallery/construction/102707278-YC_-_CAT_D9T_Dozer_Image.jpg")
     newImage1.setAttribute("src", "../gallery/construction/CM20200303-d9659-aba32.jpg")
     newImage1.setAttribute("src", "../gallery/construction/csm_web0055_82505453bd.jpg")
@@ -217,7 +252,7 @@ construction.addEventListener('click',()=> {
 
 trucks.addEventListener('click',()=> {
     replaceName('Trucks')
-    ReplacePrices('800','790')
+    ReplacePrices('250 €')
     newImage.setAttribute("src", "../gallery/trucks/fastest-trucks-lead.jpg")
     newImage1.setAttribute("src", "../gallery/trucks/fxslide1.jpg")
     newImage2.setAttribute("src", "../gallery/trucks/images.jpg")

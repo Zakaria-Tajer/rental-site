@@ -205,7 +205,7 @@ body {
     margin-left: 20px;
     margin-top: 50px;
 }
-.car-name {
+#car-name {
     margin-left: 1em;
     position: absolute;
     margin-top: 10px;
