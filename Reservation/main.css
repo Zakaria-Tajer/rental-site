@@ -316,6 +316,9 @@ body {
     display: flex;
     justify-content: flex-end;
 }
+.container.active {
+    height: 400px;
+}
 
 .search-by-name {
     width: 100%;
@@ -380,6 +383,7 @@ body {
     margin-left: auto;
 
 }
+
 .container{
     width: 90%;
     height: 300px;
@@ -393,6 +397,25 @@ body {
     display: flex;
     align-items: center;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.choices {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 20%;
+    display: none;
+    flex-wrap: wrap;
+    /* margin-left: 30px; */
+}
+#choice-checked {
+    margin-left: 30px;
+}
+.choices input{
+    margin-top: 3.5em;
+}
+.choices.active {
+    display: flex;
 }
 .img-container {
     width: 300px;
@@ -471,12 +494,12 @@ body {
     margin-top: 10px;
 }
 .line {
-    width: 70px;
+    width: 50px;
     height: 3px;
     background-color: gray;
     position: absolute;
-    right: 2em;
-    margin-top: 5px;
+    right: 1em;
+    margin-top: 2.3em;
 }
 .drop h3 {
     color: green;
@@ -495,6 +518,7 @@ body {
 .rent-side button{
     margin-top: 3em;
     position: absolute;
+
     right: 1.5em;
     width: 140px;
     height: 45px;
@@ -506,6 +530,12 @@ body {
     cursor: pointer;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
+#popup-btn {
+    position: absolute;
+    top: -132.8%;
+    right: 40%;
+}
+
 
 
 @media only screen and (max-width : 480px) {

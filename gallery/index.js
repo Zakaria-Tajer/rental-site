@@ -10,3 +10,8 @@ menu.addEventListener('click', ()=> {
 close_menu.addEventListener('click', ()=> {
     slide_menu.classList.toggle('active')
 })
+
+function redirect(){
+    console.log(1);
+    location.assign('../Reservation/index.html')
+}

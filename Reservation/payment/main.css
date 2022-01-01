@@ -188,22 +188,22 @@ body {
     top: 25%;
 }
 .right h1 {
-    position: absolute;
-    top: 25%;
-    margin-top: 20px;
+    position: relative;
+    justify-content: flex-end;
+    margin-top: 50px;
     font-size: 25px;
     display: flex;
-    right: 3em;
+    margin-right: 20px;
     font-size: 23px;
     color: #F97D3F;
 }
 
 .total h1{
-    position: absolute;
+    position: relative;
     font-size: 23px;
     top: 25%;
     margin-left: 20px;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 .car-name {
     margin-left: 1em;

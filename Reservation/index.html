@@ -39,7 +39,7 @@
                             <li><a href="#">Trucks</a></li>
                         </div>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="#">Gallery</a></li>
+                        <li><a href="../gallery/index.html">Gallery</a></li>
                         <li><a href="#">Reservation</a></li>
                         <li><a href="../contact/index.html">Contact</a></li>
                     </ul>
@@ -125,7 +125,10 @@
                         <img src="./imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg" id="imgs">
                     </div>
                     <div class="description-container">
-                        <h1>Motorcycle</h1>
+                        <div id="append-h1">
+                            <!-- appended elemnts -->
+                            <h1 class="remover"></h1>
+                        </div>
                         <div class="reviews">
                            <div class="left-side">
                                 <div class="text">
@@ -178,24 +181,39 @@
                         <div class="drop">
                             <h3>10% Off!</h3>
                         </div>
-                        <div class="prev-price">
-                            <h3>100 Dh</h3>
+                        <div class="prev-price" id="prices">
+                            <h3 id="prev-price">
+
+                            </h3>
                             <div class="line"></div>
                         </div>
-                        <div class="day-rent">
-                            <h3>90 Dh</h3>
+                        <div class="day-rent" id="prices-actual">
+                            <h3 id="actual-price">
+
+                            </h3>
                         </div>
                         <h3 class="time">1 Day</h3>
-                        <button>Rent Now</button>
+                        <button id="rent-btn">Customize</button>
+                        <div class="choices" id="choice">
+                            <input type="checkbox" id="choice-checked" onclick="verfying(this)" name="check">
+                            <h3>Electrique</h3>
+                            <input type="checkbox" id="choice-checked" onclick="verfying(this)" name="check">
+                            <h3>Essence</h3>
+                            <div class="payment-btn">
+                                <button id="popup-btn" onclick="redirectPayment()">Pay Now</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- ////container 2 -->
                 <div class="container">
                     <div class="img-container">
-                        <img src="./imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg" id="imgs">
+                        <img src="../gallery/berline/Acura-Type-S-02.jpg" id="imgs">
                     </div>
                     <div class="description-container">
-                        <h1>Motorcycle</h1>
+                        <div id="append-h1">
+                            <h1 class="remover"></h1>
+                        </div>
                         <div class="reviews">
                            <div class="left-side">
                                 <div class="text">
@@ -248,15 +266,32 @@
                         <div class="drop">
                             <h3>10% Off!</h3>
                         </div>
-                        <div class="prev-price">
-                            <h3>100 Dh</h3>
+                        <div class="prev-price" id="prices">
+                            <h3 id="prev-price">
+
+                            </h3>
                             <div class="line"></div>
                         </div>
-                        <div class="day-rent">
-                            <h3>90 Dh</h3>
+                        <div class="day-rent" id="prices-actual">
+                            <h3 id="actual-price">
+
+                            </h3>
                         </div>
                         <h3 class="time">1 Day</h3>
-                        <button>Rent Now</button>
+                        <button id="rent-btn">Customize</button>
+                        <div class="choices" id="choice">
+                            <input type="checkbox" id="choice-checked" onclick="verfying(this)" name="check">
+                            <h3>Hybrid</h3>
+                            <input type="checkbox" id="choice-checked" onclick="verfying(this)" name="check">
+                            <h3>Essence</h3>
+                            <input type="checkbox" id="choice-checked" onclick="verfying(this)" name="check">
+                            <h3>Diesel</h3>
+                            <input type="checkbox" id="choice-checked" >
+                            <h3>Automatique</h3>
+                            <div class="payment-btn">
+                                <button id="popup-btn" style="margin-top: 9em;"  onclick="redirectPayment()">Pay Now</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -264,10 +299,12 @@
                 <!-- CONTAINER3 -->
                 <div class="container" id="rmv">
                     <div class="img-container">
-                        <img src="./imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg" id="imgs">
+                        <img src="../gallery/trucks/fastest-trucks-lead.jpg" id="imgs">
                     </div>
                     <div class="description-container">
-                        <h1>Motorcycle</h1>
+                        <div id="append-h1">
+                            <h1 class="remover"></h1>
+                        </div>
                         <div class="reviews">
                            <div class="left-side">
                                 <div class="text">
@@ -320,25 +357,40 @@
                         <div class="drop">
                             <h3>10% Off!</h3>
                         </div>
-                        <div class="prev-price">
-                            <h3>100 Dh</h3>
+                        <div class="prev-price" id="prices">
+                            <h3 id="prev-price">
+
+                            </h3>
                             <div class="line"></div>
                         </div>
-                        <div class="day-rent">
-                            <h3>90 Dh</h3>
+                        <div class="day-rent" id="prices-actual">
+                            <h3 id="actual-price">
+
+                            </h3>
                         </div>
                         <h3 class="time">1 Day</h3>
-                        <button>Rent Now</button>
+                        <button id="rent-btn">Customize</button>
+                        <div class="choices" id="choice">
+                            <input type="checkbox" id="choice-checked" onclick="verfying(this)" name="check">
+                            <h3>Diesel</h3>
+                            <input type="checkbox" id="choice-checked" >
+                            <h3>Automatique</h3>
+                            <div class="payment-btn">
+                                <button id="popup-btn" onclick="redirectPayment()">Pay Now</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- conatiner4 -->
                 <div class="container" id="rmv">
                     <div class="img-container">
-                        <img src="./imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg" id="imgs">
+                        <img src="../gallery/cars/compact-imgs/HTUpvx.jpg" id="imgs">
                     </div>
                     <div class="description-container">
-                        <h1>Motorcycle</h1>
+                        <div id="append-h1">
+                            <h1 class="remover"></h1>
+                        </div>
                         <div class="reviews">
                            <div class="left-side">
                                 <div class="text">
@@ -391,15 +443,28 @@
                         <div class="drop">
                             <h3>10% Off!</h3>
                         </div>
-                        <div class="prev-price">
-                            <h3>100 Dh</h3>
+                        <div class="prev-price" id="prices">
+                            <h3 id="prev-price"></h3>
                             <div class="line"></div>
                         </div>
-                        <div class="day-rent">
-                            <h3>90 Dh</h3>
+                        <div class="day-rent" id="prices-actual">
+                            <h3 id="actual-price"></h3>
                         </div>
                         <h3 class="time">1 Day</h3>
-                        <button id="rem">Rent Now</button>
+                        <button  id="rent-btn">Customize</button>
+                        <div class="choices" id="choice">
+                            <input type="checkbox" id="choice-checked" onclick="verfying(this)" name="check">
+                            <h3>Hybrid</h3>
+                            <input type="checkbox" id="choice-checked" onclick="verfying(this)" name="check">
+                            <h3>Essence</h3>
+                            <input type="checkbox" id="choice-checked" onclick="verfying(this)" name="check">
+                            <h3>Diesel</h3>
+                            <input type="checkbox" id="choice-checked" >
+                            <h3>Manuelle</h3>
+                            <div class="payment-btn">
+                                <button id="popup-btn" style="margin-top: 9em;" onclick="redirectPayment()">Pay Now</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

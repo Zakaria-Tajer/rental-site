@@ -353,10 +353,10 @@
     .slide-menu {
         width: 350px;
         height: 100%;
-        z-index: 1;
     }
     .hidden,.side-bar ul {
         display: block;
+        
     }
     .container {
         width: 500px;
@@ -368,10 +368,12 @@
     }
     .order {
         top: -25%;
+        
     }
     .navbar li {
         display: flex;
         flex-direction: column;
+        
     }
     
 }
