@@ -43,6 +43,10 @@ window.onload = ()=> {
     const value = localStorage.getItem('price')
     const coupon = localStorage.getItem('discount')
     const car_Name = localStorage.getItem('carName')
+    const electriqueMotos = localStorage.getItem('electrique')
+    const HybirdPerc = localStorage.getItem('HybirdPerc')
+    console.log(HybirdPerc);
+
     const newImage = document.createElement('img')
     newImage.classList.add('created-img')
     img_wr.appendChild(newImage)
@@ -53,25 +57,45 @@ window.onload = ()=> {
         Prepayment.textContent = value
         Discount.textContent =  coupon
         
-
-
-        let percentage = parseInt(coupon) * 0.1
-        let added_numbers = parseInt(value) * percentage
-        // let totales = added_numbers + parseInt(Insurance.textContent)
-        let totales = parseInt(value) + added_numbers
-        let sum = totales + parseInt(Insurance.textContent)
-        console.log(sum);
-        total.textContent = `${sum} €`
+        
+        if(car_Name === 'Motorcycle' || car_Name === 'Citadine'){
+            let percentage = parseInt(coupon) * 0.1
+            let added_numbers = parseInt(value) * percentage
+            let elctriqePercentage =  parseInt(electriqueMotos)
+            // let totales = added_numbers + parseInt(Insurance.textContent)
+            let pre_totales = parseInt(value) + added_numbers
+            let pre_sum = pre_totales + parseInt(Insurance.textContent)
+            let Total = pre_sum + elctriqePercentage
+            // console.log(Total);
+            total.textContent = `${Total} €`
+         }else if(car_Name === 'Citadine' && HybirdPerc === '9%'){
+             console.log('hi');
+             localStorage.removeItem('discount')
+                localStorage.removeItem('electrique')
+             let percentage = parseInt(coupon) * 0.1
+             let added_numbers = parseInt(value) * percentage
+             let HybirdPercentage =  parseInt(HybirdPerc)
+             console.log(HybirdPercentage);
+            //   let totales = added_numbers + parseInt(Insurance.textContent)
+             let pre_totales = parseInt(value) + added_numbers
+             let pre_sum = pre_totales + parseInt(Insurance.textContent)
+             let TotalHybird = pre_sum + HybirdPercentage
+             console.log(TotalHybird);
+             total.textContent = `${TotalHybird} €`
+            
+        }
+        
+        // localStorage.removeItem('electrique')
         // localStorage.removeItem('price')
         // localStorage.removeItem('discount')
-        let key
+        // localStorage.removeItem('HybirdPerc')
         switch (car_Name) {
 
             case 'Motorcycle':
                newImage.src = '../imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg'
                 break;
             case 'Citadine':
-                newImage.setAttribute("src", "../gallery/cars/va-t-on-assister-a-la-premiere-victoire-d-un-vehicule-electrique-cette-annee-possible-si-on-en-croit-le-capital-sympathie-de-cette-petite-peugeot-photo-peugeot-1578417014.jpg")
+                newImage.src = '../imgs/HTUpvx.jpg'
             break
             default:
                 break;

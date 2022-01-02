@@ -24,8 +24,89 @@ const actual_price = document.querySelectorAll('#actual-price')
 const prev_price = document.querySelectorAll('#prev-price')
 const pay_btn = document.querySelectorAll('.pay-btn')
 
+const Hybird = document.querySelectorAll('.Hybrid')
+const Essence = document.querySelectorAll('.Essence')
+const Diesel = document.querySelectorAll('.Diesel')
+const Electrique = document.querySelectorAll('.Electrique')
+console.log(Hybird)
+
 
 // const hide_box = document.querySelectorAll('#hide-box')
+
+
+function ReplacePrices(actual){
+    for (let i = 0; i < price_updated.length; i++) {
+        actual_price[i].textContent = `${actual}`
+        price_updated[i].appendChild(actual_price[i])
+        
+    }
+}
+
+
+function verfying(checkbox) {
+    let checkboxes = document.getElementsByName('check')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked =  false
+    })
+}
+
+
+function replaceName(carName){
+    for (let i = 0; i < remover.length; i++) {
+        append_h1[i].appendChild(remover[i])
+        remover[i].textContent = `${carName}`
+        // remover[i].textContent = ''
+        
+        console.log(localStorage.setItem('carName', `${carName}`))
+    }
+}
+
+
+
+
+for (let i = 0; i < Hybird.length; i++) {
+        const Car_Name = localStorage.getItem('carName')
+        const electriquePerc = '5%'
+        const HybirdPerc = '9%'
+        Hybird[i].addEventListener('click', ()=> {
+            if(Car_Name === 'Motorcycle'){
+                alert('Motocycle Are Not Availbale with this customasation')
+            }
+            switch (Car_Name) {
+                case 'Motorcycle':
+                    alert('Motocycle Are Not Availbale with this customasation')
+                    break;
+                case 'Citadine':
+                        localStorage.setItem('HybirdPerc', HybirdPerc)
+                    break
+            
+                default:
+                    break;
+            }
+        })
+        Essence[i].addEventListener('click', ()=> {
+            if(Car_Name === 'Motorcycle'){
+                alert('Motocycle Are Not Availbale with this customasation')
+            }
+        })
+        Diesel[i].addEventListener('click', ()=> {
+            if(Car_Name === 'Motorcycle'){
+                alert('Motocycle Are Not Availbale with this customasation')
+            }
+        })
+        Electrique[i].addEventListener('click', ()=> {
+            localStorage.setItem('electrique', electriquePerc)
+        })
+        
+        
+     console.log(Hybird)
+
+     if(Car_Name === 'Citadine'){
+         console.log(1);
+     }
+       
+}
+
 
 
 window.onload = ()=> {
@@ -97,33 +178,6 @@ function getImage(){
 
 }
 
-
-function ReplacePrices(actual){
-    for (let i = 0; i < price_updated.length; i++) {
-        actual_price[i].textContent = `${actual}`
-        price_updated[i].appendChild(actual_price[i])
-        
-    }
-}
-
-
-function verfying(checkbox) {
-    let checkboxes = document.getElementsByName('check')
-    checkboxes.forEach((item) => {
-        if (item !== checkbox) item.checked =  false
-    })
-}
-
-
-function replaceName(carName){
-    for (let i = 0; i < remover.length; i++) {
-        append_h1[i].appendChild(remover[i])
-        remover[i].textContent = `${carName}`
-        // remover[i].textContent = ''
-        
-        console.log(localStorage.setItem('carName', `${carName}`))
-    }
-}
 
 
 const newImage = document.createElement('img')

@@ -408,7 +408,7 @@ body {
     flex-wrap: wrap;
     /* margin-left: 30px; */
 }
-.choice-checked {
+#choice-checked {
     margin-left: 30px;
 }
 .choices input{
@@ -478,7 +478,7 @@ body {
     justify-content: flex-end;
 }
 .fa-star {
-    color: red;
+    color: orange;
     margin-left: 2px;
 }
 
