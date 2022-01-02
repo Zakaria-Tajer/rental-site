@@ -25,7 +25,7 @@ const prev_price = document.querySelectorAll('#prev-price')
 const pay_btn = document.querySelectorAll('.pay-btn')
 
 
-const hide_box = document.querySelectorAll('#hide-box')
+// const hide_box = document.querySelectorAll('#hide-box')
 
 
 window.onload = ()=> {
@@ -93,7 +93,9 @@ function dataSrorage(Discount){
 }
 dataSrorage()
 
+function getImage(){
 
+}
 
 
 function ReplacePrices(actual){
@@ -157,7 +159,7 @@ Motorcycle.addEventListener('click',()=> {
 
 citadine.addEventListener('click',()=> {
     dataSrorage('9%')
-    replaceName('citadine')
+    replaceName('Citadine')
     ReplacePrices('12 €')
     newImage.setAttribute("src", "../gallery/cars/va-t-on-assister-a-la-premiere-victoire-d-un-vehicule-electrique-cette-annee-possible-si-on-en-croit-le-capital-sympathie-de-cette-petite-peugeot-photo-peugeot-1578417014.jpg")
     newImage1.setAttribute("src", "../gallery/cars/3309305.jpg")
