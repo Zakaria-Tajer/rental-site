@@ -221,6 +221,7 @@ body {
     width: 100%;
     height: 150px;
     background-color: chocolate;
+    display: flex;
 }
 .filter-wrapper {
     width: 100%;
@@ -359,7 +360,27 @@ body {
     margin-top: 20px;
     display: none;
 }
-
+.search-inputs {
+    display: flex;
+    margin-left: 5em;
+    align-items: center;
+}
+.search-inputs input{
+    width: 350px;
+    height: 60px;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+.search-inputs button {
+    width: 200px;
+    height: 60px;
+    margin-left: 20px;
+    font-family: var(--button-font);
+    background-color: #2196f3;
+    border: none;
+    outline: none;
+    color: white;
+}
 .input-field input {
     border: 1px solid gray;
     width: 90%;

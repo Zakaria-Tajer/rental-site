@@ -23,7 +23,7 @@ const price_updated = document.querySelectorAll('#prices-actual')
 const actual_price = document.querySelectorAll('#actual-price')
 const prev_price = document.querySelectorAll('#prev-price')
 const pay_btn = document.querySelectorAll('.pay-btn')
-
+const choice_wrapper = document.querySelectorAll('.choices')
 const Hybird = document.querySelectorAll('.Hybrid')
 const Essence = document.querySelectorAll('.Essence')
 const Diesel = document.querySelectorAll('.Diesel')
@@ -64,40 +64,70 @@ function replaceName(carName){
 
 
 
-for (let i = 0; i < Hybird.length; i++) {
+for (let i = 0; i < choice_wrapper.length; i++) {
         const Car_Name = localStorage.getItem('carName')
         const electriquePerc = '5%'
         const HybirdPerc = '9%'
-        Hybird[i].addEventListener('click', ()=> {
-            if(Car_Name === 'Motorcycle'){
-                alert('Motocycle Are Not Availbale with this customasation')
-            }
+        const DieselPer = '21%'
+        const EssencePre = '14%'
+        choice_wrapper[i].addEventListener('click', ()=> {
+            // if(Car_Name === 'Motorcycle'){
+            //     alert('Motocycle Are Not Availbale with this customasation')
+            
+            // }else if(Car_Name === 'Citadine'){
+            //     localStorage.removeItem('discount')
+            //     localStorage.setItem('HybirdPerc', HybirdPerc)
+            // }
             switch (Car_Name) {
                 case 'Motorcycle':
                     alert('Motocycle Are Not Availbale with this customasation')
                     break;
                 case 'Citadine':
+                        localStorage.removeItem('discount')
                         localStorage.setItem('HybirdPerc', HybirdPerc)
                     break
-            
+                case 'Compact':
+                    localStorage.removeItem('discount')
+                    localStorage.setItem('HybirdPerc', HybirdPerc)
+                    break
+                case 'Berline':
+                    localStorage.removeItem('discount')
+                    localStorage.setItem('HybirdPerc', HybirdPerc)
                 default:
                     break;
             }
         })
         Essence[i].addEventListener('click', ()=> {
-            if(Car_Name === 'Motorcycle'){
-                alert('Motocycle Are Not Availbale with this customasation')
+            switch (Car_Name) {
+                case 'Motorcycle':
+                    alert('Motocycle Are Not Availbale with this customasation')
+                    break
+                case 'Construction':
+                    localStorage.removeItem('discount')
+                    localStorage.setItem('Essence', EssencePre)
+                default:
+                    break;
             }
         })
         Diesel[i].addEventListener('click', ()=> {
-            if(Car_Name === 'Motorcycle'){
-                alert('Motocycle Are Not Availbale with this customasation')
+            switch (Car_Name) {
+                case 'Motorcycle':
+                    alert('Motocycle Are Not Availbale with this customasation')
+                    break
+                case 'Commercial':
+                    localStorage.removeItem('discount')
+                    localStorage.setItem('Diesel', DieselPer)
+                case 'Trucks':
+                    localStorage.removeItem('discount')
+                    localStorage.setItem('Diesel', DieselPer)
+                default:
+                    break;
             }
         })
         Electrique[i].addEventListener('click', ()=> {
             localStorage.setItem('electrique', electriquePerc)
         })
-        
+
         
      console.log(Hybird)
 
