@@ -11,7 +11,7 @@
     <main class="hero">
         <nav class="navbar">
             <div class="logo">
-                <img src="./">
+                <img src="../logo/ready-use-template-sports-car-260nw-763127107-removebg-preview.png">
             </div>
             <ul>
                 <li><a href="#">Motos</a></li>
@@ -58,16 +58,6 @@
         </div>
     </main>
     <section class="sales">
-        <div class="search">
-            <div class="search-inputs">
-                <input type="text" placeholder="Enter Cars Name">
-                <i class="fas fa-map-marker-alt"></i>
-                <input type="date" placeholder="Check In" class="Check-in-date">
-                <input type="date" placeholder="Check Out" id="Check-Out">
-                <input type="text" placeholder="Enter Cars Name">
-                <button id="search-btn-date">Search</button>
-            </div>
-        </div>
         <div class="filter-wrapper">
             <div class="filter" id="hide">
                 <div class="search-by-name" id="shrink">
@@ -85,7 +75,12 @@
                     <i class="fas fa-chevron-circle-right" id="chevron-right"></i>
                 </div>
                 <div class="empty" id="empty">
+                    <h3>Choose Number of Days</h3>
                     <i class="fas fa-chevron-down" id="chevron-empty"></i>
+                    <div class="days-wrapper-input" id="days">
+                        <input type="text" placeholder="Days" id="days-wrapper">
+                        <button id="add_days">Confirm</button>
+                    </div>
                 </div>
                 <div class="select" id="select">
                     <h3>Vehicles Types</h3>
@@ -198,7 +193,7 @@
 
                             </h3>
                         </div>
-                        <h3 class="time">1 Day</h3>
+                        <h3 class="time" id="time">1 Day</h3>
                         <button id="rent-btn">Customize</button>
                         <div class="choices" id="choice">
                             <input type="checkbox" id="choice-checked" onclick="verfying(this)" name="check" class="Hybrid">

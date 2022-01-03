@@ -17,7 +17,7 @@ const cardNumber = document.getElementById('cardNumber')
 const year_month = document.getElementById('year-month')
 const ccv = document.getElementById('ccv')
 const card_info = document.getElementById('card-info')
-
+const Dummy_day = document.getElementById('days')
 
 card_info.addEventListener('click',() => {
     if(cardOwner.value === ''){
@@ -46,11 +46,9 @@ const electriquePercentage = localStorage.getItem('electrique')
 const HybirdPerctage = localStorage.getItem('HybirdPerc')
 const DieselPerentage = localStorage.getItem('DieselPer')
 const EssencePrecentage = localStorage.getItem('Essence')
+const days_number = localStorage.getItem('days')
 
-
-
-
-
+Dummy_day.textContent = `${days_number} days`
 
 
 
@@ -73,8 +71,10 @@ for (let i = 0; i < localStorage.length; i++) {
        let add_Number_Moto = parseInt(value) * percentage
        let sum = add_Number_Moto + parseInt(value)
        let total_Moto = sum + parseInt(Insurance.textContent)
-       total.textContent = `${total_Moto} €`
-       console.log(total_Moto);
+       let tota_days = parseInt(days_number) * total_Moto
+       console.log(tota_days);
+       total.textContent = `${tota_days} €`
+       console.log(tota_days);
     }
 
     if(car_Name === 'Citadine'){

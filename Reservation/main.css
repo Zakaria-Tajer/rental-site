@@ -228,6 +228,8 @@ body {
 .filter-wrapper {
     width: 100%;
     height: 150vh;
+    position: relative;
+    top: 5em;
 }
 .filter {
     width: 20%;
@@ -255,6 +257,22 @@ body {
     position: relative;
     transform: rotate(180deg);
     top: -80%;
+}
+.empty h3 {
+    position: relative;
+    right: 35%;
+    color: #3F5EF9;
+}
+.days-wrapper-input {
+    position: absolute;
+    top: 20%;
+    right:0%;
+}
+.days-wrapper-input input {
+    position: relative;
+    width: 250px;
+    height: 40px;
+    padding-left: 20px;
 }
 
 .select {
@@ -309,6 +327,23 @@ body {
 .empty i.active {
     transform: rotate(360deg);
     top: 20%;
+}
+#days.active{
+    display: none;
+
+}
+.days-wrapper-input button {
+    height: 40px;
+    width: 90px;
+    margin-left: 30px;
+    font-family: var(--button-font);
+    background-color: #2196f3;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+
 }
 .select.active {
     height: 110px;

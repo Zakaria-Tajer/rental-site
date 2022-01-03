@@ -5,7 +5,7 @@ const close_menu = document.getElementById('close')
 const chevron = document.getElementById('chevron')
 const input_field = document.getElementById('input-field')
 const shrink = document.getElementById('shrink')
-
+const days_wrapper = document.getElementById('days-wrapper')
 const empty = document.getElementById('empty')
 const chevron_empty = document.getElementById('chevron-empty')
 
@@ -20,12 +20,11 @@ const choices = document.querySelectorAll('#choice')
 
 const choice_checked = document.querySelectorAll('#choice-checked')
 // console.log(choice_checked);
-
+const days_wrapper_input = document.getElementById('days')
 
 // for (let i = 0; i < choice_checked.length; i++) {
 //     console.log(choice_checked[i]);
 // }
-
 
 
 
@@ -92,6 +91,7 @@ chevron_right.addEventListener('click', ()=> {
 chevron_empty.addEventListener('click', ()=>{
     empty.classList.toggle('active')
     chevron_empty.classList.toggle('active')
+    days_wrapper_input.classList.toggle('active')
 
 })
 chevron_select.addEventListener('click', ()=> {

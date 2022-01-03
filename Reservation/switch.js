@@ -6,14 +6,20 @@ const commercial = document.getElementById('commercial')
 const construction = document.getElementById('construction')
 const trucks = document.getElementById('trucks')
 
-const Check_in_date = document.getElementsByClassName('.Check-in-date').value
-const search_btn_date = document.getElementById('search-btn-date')
 
-for (let i = 0; i < 1; i++) {
-    search_btn_date.onclick = ()=> {
+const days = document.getElementById('days-wrapper')
+const add_days = document.getElementById('add_days')
+const time = document.querySelectorAll('.time')
 
-        console.log(console.log(1));
-    }
+// function DaysCounter(){
+
+// }
+for (let i = 0; i < time.length; i++) {
+    add_days.addEventListener('click', ()=> {
+        let daysCounter = days.value
+        localStorage.setItem('days', daysCounter)
+        time[i].textContent = `${daysCounter} Days`
+    })
     
 }
 
