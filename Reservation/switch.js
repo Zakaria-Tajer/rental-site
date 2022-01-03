@@ -6,6 +6,16 @@ const commercial = document.getElementById('commercial')
 const construction = document.getElementById('construction')
 const trucks = document.getElementById('trucks')
 
+const Check_in_date = document.getElementsByClassName('.Check-in-date').value
+const search_btn_date = document.getElementById('search-btn-date')
+
+for (let i = 0; i < 1; i++) {
+    search_btn_date.onclick = ()=> {
+
+        console.log(console.log(1));
+    }
+    
+}
 
 const imgs = document.querySelectorAll('#imgs')
 const wrapper = document.querySelectorAll('.img-container')
@@ -63,80 +73,15 @@ function replaceName(carName){
 
 
 
-
-for (let i = 0; i < choice_wrapper.length; i++) {
-        const Car_Name = localStorage.getItem('carName')
-        const electriquePerc = '5%'
-        const HybirdPerc = '9%'
-        const DieselPer = '21%'
-        const EssencePre = '14%'
-        choice_wrapper[i].addEventListener('click', ()=> {
-            // if(Car_Name === 'Motorcycle'){
-            //     alert('Motocycle Are Not Availbale with this customasation')
-            
-            // }else if(Car_Name === 'Citadine'){
-            //     localStorage.removeItem('discount')
-            //     localStorage.setItem('HybirdPerc', HybirdPerc)
-            // }
-            switch (Car_Name) {
-                case 'Motorcycle':
-                    alert('Motocycle Are Not Availbale with this customasation')
-                    break;
-                case 'Citadine':
-                        localStorage.removeItem('discount')
-                        localStorage.setItem('HybirdPerc', HybirdPerc)
-                    break
-                case 'Compact':
-                    localStorage.removeItem('discount')
-                    localStorage.setItem('HybirdPerc', HybirdPerc)
-                    break
-                case 'Berline':
-                    localStorage.removeItem('discount')
-                    localStorage.setItem('HybirdPerc', HybirdPerc)
-                default:
-                    break;
-            }
-        })
-        Essence[i].addEventListener('click', ()=> {
-            switch (Car_Name) {
-                case 'Motorcycle':
-                    alert('Motocycle Are Not Availbale with this customasation')
-                    break
-                case 'Construction':
-                    localStorage.removeItem('discount')
-                    localStorage.setItem('Essence', EssencePre)
-                default:
-                    break;
-            }
-        })
-        Diesel[i].addEventListener('click', ()=> {
-            switch (Car_Name) {
-                case 'Motorcycle':
-                    alert('Motocycle Are Not Availbale with this customasation')
-                    break
-                case 'Commercial':
-                    localStorage.removeItem('discount')
-                    localStorage.setItem('Diesel', DieselPer)
-                case 'Trucks':
-                    localStorage.removeItem('discount')
-                    localStorage.setItem('Diesel', DieselPer)
-                default:
-                    break;
-            }
-        })
-        Electrique[i].addEventListener('click', ()=> {
-            localStorage.setItem('electrique', electriquePerc)
-        })
-
-        
-     console.log(Hybird)
-
-     if(Car_Name === 'Citadine'){
-         console.log(1);
-     }
-       
-}
-
+const Car_Name = localStorage.getItem('carName')
+const electriquePerc = '5%'
+const HybirdPerc = '9%'
+const DieselPer = '21%'
+const EssencePre = '14%'
+localStorage.setItem('HybirdPerc', HybirdPerc)
+localStorage.setItem('Essence', EssencePre)
+localStorage.setItem('DieselPer', DieselPer)
+localStorage.setItem('electrique', electriquePerc)
 
 
 window.onload = ()=> {
@@ -158,27 +103,6 @@ window.onload = ()=> {
     }
     
 }
-
-
-// for (let i = 0; i <pay_btn.length; i++) {
-//     const data = []
-//     const localStorage_data = []
-//     pay_btn[i].addEventListener('click',()=> {
-//         for (let i = 0; i < actual_price.length; i++){
-//             data.push(actual_price[i].textContent)
-//         }
-
-//             if(data[i]===data[i]){
-//                 console.log(data[i]);
-//                 localStorage_data.push(data[i]);
-//                 localStorage.setItem('price', localStorage_data)
-//                 window.location.assign('./payment/index.html')
-//             }
-//                 // localStorage.removeItem('price')
-//                 // localStorage.removeItem('discount')     
-//     })
-// }
-
 function dataSrorage(Discount){
     for (let i = 0; i < pay_btn.length; i++) {
         const data = []
@@ -218,6 +142,40 @@ const newImage3 = document.createElement('img')
 
 
 Motorcycle.addEventListener('click',()=> {
+    for (let i = 0; i < choice_wrapper.length; i++) {
+        Hybird[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Motorcycle':
+                    alert('Motocycle Are Not Availbale with this customasation')
+                    break;
+                    case 'Citadine':
+                        // localStorage.removeItem('discount')
+                        return localStorage.setItem('HybirdPerc', HybirdPerc)
+                default:
+                    break;
+            }
+        })
+        Essence[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Motorcycle':
+                    alert('Motocycle Are Not Availbale with this customasation')
+                    break
+            }
+
+        })
+        Electrique[i].addEventListener('click', ()=> {
+            return localStorage.setItem('electrique', electriquePerc)
+        })
+        Diesel[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Motorcycle':
+                    alert('Motocycle Are Not Availbale with this customasation')
+                    break
+            }
+        })
+}
+
+
     dataSrorage('7%')
     replaceName('Motorcycle')
     ReplacePrices('10 €')
@@ -233,7 +191,6 @@ Motorcycle.addEventListener('click',()=> {
         wrapper[1].appendChild(newImage1)
         wrapper[2].appendChild(newImage2)
         wrapper[3].appendChild(newImage3)
-        
     }
     // history.pushState(null, null,'Motorcycle')
     // dataSrorage('7%') 
@@ -242,7 +199,53 @@ Motorcycle.addEventListener('click',()=> {
 
 
 citadine.addEventListener('click',()=> {
-    dataSrorage('9%')
+    for (let i = 0; i < choice_wrapper.length; i++) {
+        Hybird[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Citadine':
+                    // localStorage.removeItem('discount')
+                    return localStorage.setItem('HybirdPerc', HybirdPerc)
+            default:
+                break;
+            }
+        })
+        Essence[i].addEventListener('click',()=> {
+            switch (Car_Name) {
+                case 'Citadine':
+                    localStorage.removeItem('HybirdPerc')
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('Essence', EssencePre)
+                    break;
+                default:
+                    break;
+            }
+        })
+        Diesel[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Citadine':
+                    localStorage.removeItem('EssencePre')
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('DieselPer', DieselPer)
+                    break;
+            
+                default:
+                    break;
+            }
+        })
+        Electrique[i].addEventListener('click',()=> {
+            switch (Car_Name) {
+                case 'Citadine':
+                    return localStorage.setItem('electrique', electriquePerc)
+                    break;
+            
+                default:
+                    break;
+            }
+        })
+       
+        
+    }
+    // dataSrorage('9%')
     replaceName('Citadine')
     ReplacePrices('12 €')
     newImage.setAttribute("src", "../gallery/cars/va-t-on-assister-a-la-premiere-victoire-d-un-vehicule-electrique-cette-annee-possible-si-on-en-croit-le-capital-sympathie-de-cette-petite-peugeot-photo-peugeot-1578417014.jpg")
@@ -262,7 +265,52 @@ citadine.addEventListener('click',()=> {
 
 
 compact.addEventListener('click',()=> {
-    dataSrorage('7%')
+    for (let i = 0; i < choice_wrapper.length; i++) {
+        Hybird[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Compact':
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('HybirdPerc', HybirdPerc)
+            default:
+                break;
+            }
+        })
+        Essence[i].addEventListener('click',()=> {
+            switch (Car_Name) {
+                case 'Compact':
+                    localStorage.removeItem('HybirdPerc')
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('Essence', EssencePre)
+                    break;
+                default:
+                    break;
+            }
+        })
+        Diesel[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Compact':
+                    localStorage.removeItem('EssencePre')
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('DieselPer', DieselPer)
+                    break;
+            
+                default:
+                    break;
+            }
+        })
+        Electrique[i].addEventListener('click',()=> {
+            switch (Car_Name) {
+                case 'Compact':
+                    alert('Compact Cars Are Not Availbale with this customasation')
+                    break;
+            
+                default:
+                    break;
+            }
+        })
+    }
+
+    // dataSrorage('7%')
     replaceName('Compact')
     ReplacePrices('14 €')
     newImage.setAttribute("src", "../gallery/cars/compact-imgs/990208.jpg")
@@ -281,6 +329,50 @@ compact.addEventListener('click',()=> {
 })
 
 berline.addEventListener('click',()=> {
+    for (let i = 0; i < choice_wrapper.length; i++) {
+        Hybird[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Berline':
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('HybirdPerc', HybirdPerc)
+            default:
+                break;
+            }
+        })
+        Essence[i].addEventListener('click',()=> {
+            switch (Car_Name) {
+                case 'Berline':
+                    localStorage.removeItem('HybirdPerc')
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('Essence', EssencePre)
+                    break;
+                default:
+                    break;
+            }
+        })
+        Diesel[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Berline':
+                    localStorage.removeItem('EssencePre')
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('DieselPer', DieselPer)
+                    break;
+            
+                default:
+                    break;
+            }
+        })
+        Electrique[i].addEventListener('click',()=> {
+            switch (Car_Name) {
+                case 'Berline':
+                    alert('Compact Cars Are Not Availbale with this customasation')
+                    break;
+            
+                default:
+                    break;
+            }
+        })
+    }
     replaceName('Berline')
     ReplacePrices('20 €')
     newImage.setAttribute("src", "../gallery/berline/Acura-Type-S-02.jpg")
@@ -300,6 +392,21 @@ berline.addEventListener('click',()=> {
    
 })
 commercial.addEventListener('click',()=> {
+    for (let i = 0; i < choice_wrapper.length; i++) {
+        Diesel[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Commercial':
+                    localStorage.removeItem('EssencePre')
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('DieselPer', DieselPer)
+                    break;
+            
+                default:
+                    break;
+            }
+        })
+        
+    }
     replaceName('Commercial')
     ReplacePrices('16 €')
     newImage.setAttribute("src", "../gallery/commercial/AdobeStock_243360779.jpeg")
@@ -320,6 +427,32 @@ commercial.addEventListener('click',()=> {
 })
 
 construction.addEventListener('click',()=> {
+    for (let i = 0; i < choice_wrapper.length; i++) {
+        Diesel[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Construction':
+                    localStorage.removeItem('EssencePre')
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('DieselPer', DieselPer)
+                    break;
+            
+                default:
+                    break;
+            }
+        })
+        Essence[i].addEventListener('click',()=> {
+            switch (Car_Name) {
+                case 'Commercial':
+                    localStorage.removeItem('HybirdPerc')
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('Essence', EssencePre)
+                    break;
+                default:
+                    break;
+            }
+        })
+        
+    }
     replaceName('Construction')
     ReplacePrices('900 €')
     newImage.setAttribute("src", "../gallery/construction/102707278-YC_-_CAT_D9T_Dozer_Image.jpg")
@@ -337,6 +470,21 @@ construction.addEventListener('click',()=> {
 })
 
 trucks.addEventListener('click',()=> {
+    for (let i = 0; i < choice_wrapper; i++) {
+        Diesel[i].addEventListener('click', ()=> {
+            switch (Car_Name) {
+                case 'Trucks':
+                    localStorage.removeItem('EssencePre')
+                    localStorage.removeItem('discount')
+                    return localStorage.setItem('DieselPer', DieselPer)
+                    break;
+            
+                default:
+                    break;
+            }
+        })
+        
+    }
     replaceName('Trucks')
     ReplacePrices('250 €')
     newImage.setAttribute("src", "../gallery/trucks/fastest-trucks-lead.jpg")
