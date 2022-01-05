@@ -234,7 +234,6 @@ body {
 .filter {
     width: 20%;
     height: 85%;
-    background-color: brown;
     /* box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; */
     margin-left: 5em;
     position: absolute;
@@ -656,6 +655,7 @@ body {
     .list-page {
         width: 500px;
         display: block;
+        position: absolute;
         text-align: center;
         margin-top: 20px;
     }
@@ -677,10 +677,8 @@ body {
     
     .filter {
         height: 90%;
-        position: relative;
         width: 400px;
-        left: -100%;
-        z-index: 1;
+        transform: translate(-50%,5%);
     }
     .filter i {
         display: none;
@@ -730,20 +728,21 @@ body {
         right: 20px;
     }
     #chevron-filter {
-        font-size: 40px;
+        font-size: 50px;
         position: absolute;
-        top: 0%;
-        display: block;
+        top: 10%;
         z-index: 1;
+        transform: translate(-12%,60%);
     }
     #hide.active {
-        left: -16%;
+        transform: translate(-15%,5%);
     }
     #chevron-filter.active {
-        right: 15%;
         transform: rotate(180deg);
         z-index: 1;
         position: absolute;
+        margin-top: 25px;margin-left: 0px;
+        right: 20%;
     }
     #days {
         margin-top: 20px;
@@ -762,7 +761,6 @@ body {
         display: none;
     }
     .rent-vehicle {
-        position: absolute;
         width: 500px;
         top: 0;
         /* height: 700px; */
@@ -778,7 +776,7 @@ body {
         height: 900px;
     }
     .img-container {
-        position: absolute;
+        position: relative;
         top: 0;
         width: 500px;
     }
@@ -800,14 +798,15 @@ body {
         flex-wrap: wrap; */
         position: absolute;
         width: 500px;
-        top: 65%;
+        top: -3%;
+        right: 0;
         height: 300px;
         margin-left: 0;
     }
     #rent-btn {
-        position: absolute;
-        top: 0;
+        position: relative;
         right: 30%;
+        transform: translate(-40%,-330%);
     }
     #choice-checked {
         margin-left: 40px;
@@ -828,11 +827,7 @@ body {
 }
 
 @media only screen and (max-width : 1024px) {
-    body {
-        width: 800px;
-        height: 100vh;
-        position: relative;
-    }
+
     .navbar {
         position: absolute;
     }
@@ -853,7 +848,9 @@ body {
         height: 100vh;
     }
 
-
+    .list-page {
+        width: 810px;
+    }
     .list-page h1{
         margin-left: 20px;
         margin-top: 30px;
@@ -888,7 +885,7 @@ body {
         font-size: 40px;
         position: relative;
         left: 25%;
-        top: 0%;
+        top: 1%;
         display: block;
     }
 
@@ -933,6 +930,7 @@ body {
 
     .rent-vehicle {
         width: 870px;
+        position: relative;
     }
     .container.active {
         height: 600px;
@@ -983,7 +981,7 @@ body {
     #choice-checked {
         margin-left: 0;
         position: relative;
-    }
+    } 
 
 
 }

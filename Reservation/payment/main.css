@@ -383,7 +383,9 @@ body {
         position: relative;
     }
 
-    
+    #days {
+        top: -10%;
+    }
     .line1 {
         width: 100%;
     }
