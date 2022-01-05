@@ -32,7 +32,7 @@ body {
 .hero {
     width: 100%;
     height: 30vh;
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
     position: relative;
 }
 
@@ -234,13 +234,15 @@ body {
 .filter {
     width: 20%;
     height: 85%;
-    /* background-color: white; */
+    background-color: brown;
     /* box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px; */
     margin-left: 5em;
     position: absolute;
     border-radius: 10px;
 }
-
+#chevron-filter {
+    display: none;
+}
 .empty {
     width: 100%;
     height: 200px;
@@ -450,7 +452,6 @@ body {
 .rent-vehicle {
     width: 75%;
     height: 150vh;
-    /* background-color: cornflowerblue; */
     position: relative;
     margin-left: auto;
 
@@ -504,7 +505,6 @@ body {
 .description-container {
     width: 500px;
     height: 250px;
-    /* background-color: yellow; */
     margin-left: 20px;
 }
 .description-container h1 {
@@ -526,6 +526,7 @@ body {
 .right-side {
     width:50%;
     height:100%;
+
 }
 
 
@@ -613,9 +614,15 @@ body {
 }
 
 
+
+
 @media only screen and (max-width : 480px) {
     .hero {
         width: 500px;
+    }
+    .navbar {
+        position: absolute;
+        top: -10%;
     }
     .slide-menu {
         left: 10em;
@@ -664,32 +671,171 @@ body {
     }
     .sales {
         width: 500px;
-    }
-    .filter {
-        margin-left: 0px;
-        width: 250px;
-        position: absolute;
-        left: -50%;
-    }
-    .mobile-icon i {
-        right: -30px;
-        position: absolute;
-        font-size: 45px; 
-        top: 50%; 
-    }
-    .filter.active {
-        left: 0%;
-    }
-    .filter i.active {
-        transform: rotate(180deg);
-    }
-    .rent-vehicle {
-       display: none;
+        display: flex;
+        justify-content: center;
     }
     
+    .filter {
+        height: 90%;
+        position: relative;
+        width: 400px;
+        left: -100%;
+        z-index: 1;
+    }
+    .filter i {
+        display: none;
+    }
+    #shrink {
+        height: 300px;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+        display: block;
+    }
+   .input-field {
+       display: block;
+   }
+   .input-field input {
+       width: 100%;
+       position: relative;
+       right: 10px;
+   }
+   .input-field i {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+    .empty {
+        height: 300px;
+        position: relative;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    .empty h3{
+        top: 8%;
+        /* z-index: 1; */
+        position: absolute;
+        text-align: center;
+        
+    }
+    .empty i {
+        display: none;
+    }
+    .days-wrapper-input input {
+        margin-left: 20px;
+        width: 90%;
+    }
+    .days-wrapper-input button {
+        width: 300px;
+        position: relative;
+        right: 20px;
+    }
+    #chevron-filter {
+        font-size: 40px;
+        position: absolute;
+        top: 0%;
+        display: block;
+        z-index: 1;
+    }
+    #hide.active {
+        left: -16%;
+    }
+    #chevron-filter.active {
+        right: 15%;
+        transform: rotate(180deg);
+        z-index: 1;
+        position: absolute;
+    }
+    #days {
+        margin-top: 20px;
+    }
+    #days button{
+        margin-top: 30px;
+        margin-left: 6em;
+    }
+    .select {
+        height: 500px;
+    }
+    .select input {
+        margin-top: 20px;
+    }
+    .select i {
+        display: none;
+    }
+    .rent-vehicle {
+        position: absolute;
+        width: 500px;
+        top: 0;
+        /* height: 700px; */
+        /* z-index:1; */
+    }
+    .container {
+        width: 500px;
+        position: relative;
+        height: 100%;
+        /* z-index: 1; */
+    }
+    .container.active {
+        height: 900px;
+    }
+    .img-container {
+        position: absolute;
+        top: 0;
+        width: 500px;
+    }
+    .img-container img {
+        width: 500px;
+        right: 1.2em;
+        position: relative;
+    }
+    .description-container {
+        position: relative;
+        width: 500px;
+        height: 300px;
+        top: 0%;
+        left: 0;
+        margin-left: 0;
+    }
+    .rent-side {
+        /* display: flex;
+        flex-wrap: wrap; */
+        position: absolute;
+        width: 500px;
+        top: 65%;
+        height: 300px;
+        margin-left: 0;
+    }
+    #rent-btn {
+        position: absolute;
+        top: 0;
+        right: 30%;
+    }
+    #choice-checked {
+        margin-left: 40px;
+        position: relative;
+    }
+    .choices {
+        position: absolute;
+        margin-top: 70px;
+    }
+    .pay-btn {
+        position: absolute;
+        margin-top: 20px;
+        transform: translate(-80%,-114%);
+    }
+    .logo {
+        margin-bottom: 25px;
+    }
 }
 
 @media only screen and (max-width : 1024px) {
+    body {
+        width: 800px;
+        height: 100vh;
+        position: relative;
+    }
+    .navbar {
+        position: absolute;
+    }
     .navbar ul {
         display: none;
     }
@@ -699,5 +845,146 @@ body {
     .hidden {
         display: block;
     }
+    .logo {
+        margin-bottom: 30px;
+    }
+    .sales {
+        width: 100%;
+        height: 100vh;
+    }
+
+
+    .list-page h1{
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+    .directions {
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+    }
+    .directions i {
+        position: relative;
+        top: 10px;
+    }
+    .filter-wrapper {
+        width: 300px;
+        position: absolute;
+        left: -10%;
+       
+    }
+    .search-by-name {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    .filter {
+        width: 300px;
+        left: -105%;
+        position: absolute;
+        height: 75%;
+        z-index: 1;
+    }
+    #chevron-filter {
+        font-size: 40px;
+        position: relative;
+        left: 25%;
+        top: 0%;
+        display: block;
+    }
+
+    #hide.active {
+        left: -1%;
+
+    }
+    #chevron-filter.active {
+        left: 120%;
+        transform: rotate(180deg);
+        position: absolute;
+        z-index: 1;
+    }
+    .empty {
+        position: relative;
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+    .empty h3 {
+        position: relative;
+        left: -40px;
+    }
+    .days-wrapper-input {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+    }
+    .days-wrapper-input input {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+    .days-wrapper-input button {
+        margin-top: 20px;
+        margin-left: 20px;
+        width: 70%;
+    }
+    .select {
+        border-bottom-left-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+
+    .rent-vehicle {
+        width: 870px;
+    }
+    .container.active {
+        height: 600px;
+    } 
+    .container {
+        width: 100%;
+        height: 600px;
+        position: relative;
+    }
+    .img-container {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+    }
+    .img-container img {
+        width: 100%;
+        object-fit: cover;
+    }
+    .description-container {
+        width: 500px;
+        margin-top:14em;
+    }
+    .remover {
+        display: flex;
+        justify-content: center;
+    }
+    .reviews {
+        margin-left: 3em;
+        position: absolute;
+    }
+    .rent-side {
+        margin-top: 18em;
+        height: 400px;
+    }
+    #rent-btn {
+        position: absolute;
+        top: 48%;
+        right: 12%;
+    }
+    .payment-btn button{
+        transform: translate(-65%, -80%);
+    }
+    .choices {
+        margin-top: 0em; 
+        position: relative;
+        transform: translateY(-40%);
+    }
+    #choice-checked {
+        margin-left: 0;
+        position: relative;
+    }
+
+
 }
 

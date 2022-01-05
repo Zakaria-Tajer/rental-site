@@ -4,9 +4,9 @@ const chevron_left = document.getElementById('chevron-left')
 
 
 
-const Prepayment = document.getElementById('Prepayment')
-const Discount = document.getElementById('Discount')
-const Insurance = document.getElementById('Insurance')
+// const Prepayment = document.getElementById('Prepayment')
+// const Discount = document.getElementById('Discount')
+// const Insurance = document.getElementById('Insurance')
 const total = document.getElementById('total')
 const carName = document.getElementById('car-name')
 const carImg = document.getElementById('car-img')
@@ -39,16 +39,20 @@ chevron_left.addEventListener('click',()=> {
     location.assign('../index.html')
 })
 
-const value = localStorage.getItem('price')
-const coupon = localStorage.getItem('discount')
+const value = localStorage.getItem('actual_price')
+// const coupon = localStorage.getItem('discount')
 const car_Name = localStorage.getItem('carName')
-const electriquePercentage = localStorage.getItem('electrique')
+const electriquePercentage = localStorage.getItem('electriEnr')
 const HybirdPerctage = localStorage.getItem('HybirdPerc')
 const DieselPerentage = localStorage.getItem('DieselPer')
 const EssencePrecentage = localStorage.getItem('Essence')
-const days_number = localStorage.getItem('days')
+const numDays = localStorage.getItem('days')
 
-Dummy_day.textContent = `${days_number} days`
+if(numDays === null){
+    Dummy_day.textContent = `1 Day`
+}else {
+    Dummy_day.textContent = `${numDays} days`
+}
 
 
 
@@ -58,204 +62,239 @@ newImage_Car.classList.add('created-img')
 img_wr.appendChild(newImage_Car)
 carImg.parentElement.removeChild(carImg)
 
-
+const Sums = localStorage.getItem('Total_Of_Sums')
+console.log(Sums);
 for (let i = 0; i < localStorage.length; i++) {
     carName.textContent = `${car_Name}`
     Prepayment.textContent = value
-    Discount.textContent =  coupon
+    // Discount.textContent =  coupon
 
-    if(car_Name == 'Motorcycle'){
-        newImage_Car.src = '../imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg'
-       Discount.textContent = electriquePercentage
-       let percentage = parseInt(electriquePercentage) / 100
-       let add_Number_Moto = parseInt(value) * percentage
-       let sum = add_Number_Moto + parseInt(value)
-       let total_Moto = sum + parseInt(Insurance.textContent)
-       let tota_days = parseInt(days_number) * total_Moto
-       console.log(tota_days);
-       total.textContent = `${tota_days} €`
-       console.log(tota_days);
+    switch (car_Name) {
+        case 'Motorcycle':
+            newImage_Car.src = '../imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg'
+            Discount.textContent = electriquePercentage
+            total.textContent = `${parseFloat(Sums).toFixed(2)} €`
+            break;
+        default:
+            break;
     }
-
-    if(car_Name === 'Citadine'){
-            localStorage.removeItem('electrique')
+    
+    switch (car_Name) {
+        case 'Citadine' || HybirdPerctage:
+            newImage_Car.src = '../imgs/HTUpvx.jpg'
             Discount.textContent = HybirdPerctage
-            let percentage = parseInt(HybirdPerctage) / 100
-            let add_Number_Citadine = parseInt(value) * percentage
-            let sum = add_Number_Citadine + parseInt(value)
-            console.log(add_Number_Citadine);
-            let total_Citadine_Hybird = sum + parseInt(Insurance.textContent)
-            total.textContent = `${total_Citadine_Hybird} €`
+            total.textContent = `${parseFloat(Sums).toFixed(2)}€`
+        case 'Citadine' || DieselPerentage:
             newImage_Car.src = '../imgs/HTUpvx.jpg'
-    } 
+            Discount.textContent = DieselPerentage
+            total.textContent = `${parseFloat(Sums).toFixed(2)}€`
+            break;
+        case 'Citadine' || EssencePrecentage:
+            newImage_Car.src = '../imgs/HTUpvx.jpg'
+            Discount.textContent = EssencePrecentage
+            total.textContent = `${parseFloat(Sums).toFixed(2)}€`
+            break;
+        case 'Citadine' || electriquePercentage:
+            newImage_Car.src = '../imgs/HTUpvx.jpg'
+            Discount.textContent = electriquePercentage
+            total.textContent = `${parseFloat(Sums).toFixed(2)}€`
+            break;
+        default:
+            break;
+    }
 
-    if(car_Name === 'Citadine' && EssencePrecentage === '14%'){
-        // localStorage.removeItem('HybirdPerc')
-            Discount.textContent =  EssencePrecentage
-            let percentage = parseInt(EssencePrecentage) / 100
-            console.log(percentage);
-            let add_Number_Citadine_Essence = parseInt(value) * percentage
-            let Sum = add_Number_Citadine_Essence + parseInt(value)
-            console.log(Sum);
-            let total_Citadine_Essence = Sum + parseInt(Insurance.textContent)
-            total.textContent = `${total_Citadine_Essence} €`
-            newImage_Car.src = '../imgs/HTUpvx.jpg'
-            console.log(1);
-    }
-    if(car_Name === 'Citadine' && DieselPerentage === '21%'){
-            Discount.textContent =  DieselPerentage
-            let percentage = parseInt(DieselPerentage) / 100
-            console.log(percentage);
-            let add_Number_Citadine_Diesel = parseInt(value) * percentage
-            let Sum = add_Number_Citadine_Diesel + parseInt(value)
-            console.log(Sum);
-            let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
-            total.textContent = `${total_Citadine_Diesel} €`
-            newImage_Car.src = '../imgs/HTUpvx.jpg'
-            console.log(1);
-    }
-    if(car_Name === 'Citadine' && electriquePercentage === '5%'){
-        Discount.textContent =  electriquePercentage
-        let percentage = parseInt(electriquePercentage) / 100
-        console.log(percentage);
-        let add_Number_Citadine_Electrique = parseInt(value) * percentage
-        let Sum = add_Number_Citadine_Electrique + parseInt(value)
-        console.log(Sum);
-        let total_Citadine_Electrique = Sum + parseInt(Insurance.textContent)
-        total.textContent = `${total_Citadine_Electrique} €`
-        newImage_Car.src = '../imgs/HTUpvx.jpg'
-        console.log(1);
-    }
+   
+    
+    // localStorage.removeItem('days')
+    // if(car_Name == 'Motorcycle'){
+    //     newImage_Car.src = '../imgs/195885_2020_HONDA_CBR1000RR-R_SP.jpg'
+    //    Discount.textContent = electriquePercentage
+    //    let percentage = parseInt(electriquePercentage) / 100
+    //    let add_Number_Moto = parseInt(value) * percentage
+    //    let sum = add_Number_Moto + parseInt(value)
+    //    let total_Moto = sum + parseInt(Insurance.textContent)
+    //    let tota_days = parseInt(days_number) * total_Moto
+    //    console.log(tota_days);
+    //    total.textContent = `${tota_days} €`
+    //    console.log(tota_days);
+    // }
+
+
+    // if(car_Name === 'Citadine'){
+    //         localStorage.removeItem('electrique')
+    //         Discount.textContent = HybirdPerctage
+    //         let percentage = parseInt(HybirdPerctage) / 100
+    //         let add_Number_Citadine = parseInt(value) * percentage
+    //         let sum = add_Number_Citadine + parseInt(value)
+    //         console.log(add_Number_Citadine);
+    //         let total_Citadine_Hybird = sum + parseInt(Insurance.textContent)
+    //         total.textContent = `${total_Citadine_Hybird} €`
+    //         newImage_Car.src = '../imgs/HTUpvx.jpg'
+    // } 
+
+
+    // if(car_Name === 'Citadine' && EssencePrecentage === '14%'){
+    //     // localStorage.removeItem('HybirdPerc')
+    //         Discount.textContent =  EssencePrecentage
+    //         let percentage = parseInt(EssencePrecentage) / 100
+    //         console.log(percentage);
+    //         let add_Number_Citadine_Essence = parseInt(value) * percentage
+    //         let Sum = add_Number_Citadine_Essence + parseInt(value)
+    //         console.log(Sum);
+    //         let total_Citadine_Essence = Sum + parseInt(Insurance.textContent)
+    //         total.textContent = `${total_Citadine_Essence} €`
+    //         newImage_Car.src = '../imgs/HTUpvx.jpg'
+    //         console.log(1);
+    // }
+    // if(car_Name === 'Citadine' && DieselPerentage === '21%'){
+    //         Discount.textContent =  DieselPerentage
+    //         let percentage = parseInt(DieselPerentage) / 100
+    //         console.log(percentage);
+    //         let add_Number_Citadine_Diesel = parseInt(value) * percentage
+    //         let Sum = add_Number_Citadine_Diesel + parseInt(value)
+    //         console.log(Sum);
+    //         let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
+    //         total.textContent = `${total_Citadine_Diesel} €`
+    //         newImage_Car.src = '../imgs/HTUpvx.jpg'
+    //         console.log(1);
+    // }
+    // if(car_Name === 'Citadine' && electriquePercentage === '5%'){
+    //     Discount.textContent =  electriquePercentage
+    //     let percentage = parseInt(electriquePercentage) / 100
+    //     console.log(percentage);
+    //     let add_Number_Citadine_Electrique = parseInt(value) * percentage
+    //     let Sum = add_Number_Citadine_Electrique + parseInt(value)
+    //     console.log(Sum);
+    //     let total_Citadine_Electrique = Sum + parseInt(Insurance.textContent)
+    //     total.textContent = `${total_Citadine_Electrique} €`
+    //     newImage_Car.src = '../imgs/HTUpvx.jpg'
+    //     console.log(1);
+    // }
 
     
-    if(car_Name === 'Compact'){
-        Discount.textContent = HybirdPerctage
-        let percentage = parseInt(HybirdPerctage) / 100
-        let add_Number_Citadine = parseInt(value) * percentage
-        let sum = add_Number_Citadine + parseInt(value)
-        console.log(add_Number_Citadine);
-        let total_Citadine_Hybird = sum + parseInt(Insurance.textContent)
-        total.textContent = `${total_Citadine_Hybird} €`
-        newImage_Car.src = '../imgs/HTUpvx.jpg'
-    } 
+    // if(car_Name === 'Compact'){
+    //     Discount.textContent = HybirdPerctage
+    //     let percentage = parseInt(HybirdPerctage) / 100
+    //     let add_Number_Citadine = parseInt(value) * percentage
+    //     let sum = add_Number_Citadine + parseInt(value)
+    //     console.log(add_Number_Citadine);
+    //     let total_Citadine_Hybird = sum + parseInt(Insurance.textContent)
+    //     total.textContent = `${total_Citadine_Hybird} €`
+    //     newImage_Car.src = '../imgs/HTUpvx.jpg'
+    // } 
 
-    if(car_Name === 'Compact' && EssencePrecentage === '14%'){
-        Discount.textContent =  EssencePrecentage
-        let percentage = parseInt(EssencePrecentage) / 100
-        console.log(percentage);
-        let add_Number_Citadine_Essence = parseInt(value) * percentage
-        let Sum = add_Number_Citadine_Essence + parseInt(value)
-        console.log(Sum);
-        let total_Citadine_Essence = Sum + parseInt(Insurance.textContent)
-        total.textContent = `${total_Citadine_Essence} €`
-        newImage_Car.src = '../imgs/HTUpvx.jpg'
-        console.log(1);
-    }
-    if(car_Name === 'Compact' && DieselPerentage === '21%'){
-        Discount.textContent =  DieselPerentage
-        let percentage = parseInt(DieselPerentage) / 100
-        console.log(percentage);
-        let add_Number_Citadine_Diesel = parseInt(value) * percentage
-        let Sum = add_Number_Citadine_Diesel + parseInt(value)
-        console.log(Sum);
-        let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
-        total.textContent = `${total_Citadine_Diesel} €`
-        newImage_Car.src = '../imgs/HTUpvx.jpg'
-        console.log(1);
-    }
+    // if(car_Name === 'Compact' && EssencePrecentage === '14%'){
+    //     Discount.textContent =  EssencePrecentage
+    //     let percentage = parseInt(EssencePrecentage) / 100
+    //     console.log(percentage);
+    //     let add_Number_Citadine_Essence = parseInt(value) * percentage
+    //     let Sum = add_Number_Citadine_Essence + parseInt(value)
+    //     console.log(Sum);
+    //     let total_Citadine_Essence = Sum + parseInt(Insurance.textContent)
+    //     total.textContent = `${total_Citadine_Essence} €`
+    //     newImage_Car.src = '../imgs/HTUpvx.jpg'
+    //     console.log(1);
+    // }
+    // if(car_Name === 'Compact' && DieselPerentage === '21%'){
+    //     Discount.textContent =  DieselPerentage
+    //     let percentage = parseInt(DieselPerentage) / 100
+    //     console.log(percentage);
+    //     let add_Number_Citadine_Diesel = parseInt(value) * percentage
+    //     let Sum = add_Number_Citadine_Diesel + parseInt(value)
+    //     console.log(Sum);
+    //     let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
+    //     total.textContent = `${total_Citadine_Diesel} €`
+    //     newImage_Car.src = '../imgs/HTUpvx.jpg'
+    //     console.log(1);
+    // }
 
-    if(car_Name === 'Berline'){
-        Discount.textContent = HybirdPerctage
-        let percentage = parseInt(HybirdPerctage) / 100
-        let add_Number_Citadine = parseInt(value) * percentage
-        let sum = add_Number_Citadine + parseInt(value)
-        console.log(add_Number_Citadine);
-        let total_Citadine_Hybird = sum + parseInt(Insurance.textContent)
-        total.textContent = `${total_Citadine_Hybird} €`
-        newImage_Car.src = '../imgs/Acura-Type-S-02.jpg'
-    } 
+    // if(car_Name === 'Berline'){
+    //     Discount.textContent = HybirdPerctage
+    //     let percentage = parseInt(HybirdPerctage) / 100
+    //     let add_Number_Citadine = parseInt(value) * percentage
+    //     let sum = add_Number_Citadine + parseInt(value)
+    //     console.log(add_Number_Citadine);
+    //     let total_Citadine_Hybird = sum + parseInt(Insurance.textContent)
+    //     total.textContent = `${total_Citadine_Hybird} €`
+    //     newImage_Car.src = '../imgs/Acura-Type-S-02.jpg'
+    // } 
 
-    if(car_Name === 'Berline' && EssencePrecentage === '14%'){
-        Discount.textContent =  EssencePrecentage
-        let percentage = parseInt(EssencePrecentage) / 100
-        console.log(percentage);
-        let add_Number_Citadine_Essence = parseInt(value) * percentage
-        let Sum = add_Number_Citadine_Essence + parseInt(value)
-        console.log(Sum);
-        let total_Citadine_Essence = Sum + parseInt(Insurance.textContent)
-        total.textContent = `${total_Citadine_Essence} €`
-        newImage_Car.src = '../imgs/Acura-Type-S-02.jpg'
-        console.log(1);
-    }
-    if(car_Name === 'Berline' && DieselPerentage === '21%'){
-        Discount.textContent =  DieselPerentage
-        let percentage = parseInt(DieselPerentage) / 100
-        console.log(percentage);
-        let add_Number_Citadine_Diesel = parseInt(value) * percentage
-        let Sum = add_Number_Citadine_Diesel + parseInt(value)
-        console.log(Sum);
-        let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
-        total.textContent = `${total_Citadine_Diesel} €`
-        newImage_Car.src = '../imgs/Acura-Type-S-02.jpg'
-        console.log(1);
-    }
+    // if(car_Name === 'Berline' && EssencePrecentage === '14%'){
+    //     Discount.textContent =  EssencePrecentage
+    //     let percentage = parseInt(EssencePrecentage) / 100
+    //     console.log(percentage);
+    //     let add_Number_Citadine_Essence = parseInt(value) * percentage
+    //     let Sum = add_Number_Citadine_Essence + parseInt(value)
+    //     console.log(Sum);
+    //     let total_Citadine_Essence = Sum + parseInt(Insurance.textContent)
+    //     total.textContent = `${total_Citadine_Essence} €`
+    //     newImage_Car.src = '../imgs/Acura-Type-S-02.jpg'
+    //     console.log(1);
+    // }
+    // if(car_Name === 'Berline' && DieselPerentage === '21%'){
+    //     Discount.textContent =  DieselPerentage
+    //     let percentage = parseInt(DieselPerentage) / 100
+    //     console.log(percentage);
+    //     let add_Number_Citadine_Diesel = parseInt(value) * percentage
+    //     let Sum = add_Number_Citadine_Diesel + parseInt(value)
+    //     console.log(Sum);
+    //     let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
+    //     total.textContent = `${total_Citadine_Diesel} €`
+    //     newImage_Car.src = '../imgs/Acura-Type-S-02.jpg'
+    //     console.log(1);
+    // }
 
     
-    if(car_Name === 'Commercial' && DieselPerentage === '21%'){
-        Discount.textContent =  DieselPerentage
-        let percentage = parseInt(DieselPerentage) / 100
-        console.log(percentage);
-        let add_Number_Citadine_Diesel = parseInt(value) * percentage
-        let Sum = add_Number_Citadine_Diesel + parseInt(value)
-        console.log(Sum);
-        let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
-        total.textContent = `${total_Citadine_Diesel} €`
-        newImage_Car.src = '../imgs/USC80FOT115A021001.jpg'
-        console.log(1);
-    }
-    if(car_Name === 'Construction' && DieselPerentage === '21%'){
-        Discount.textContent =  DieselPerentage
-        let percentage = parseInt(DieselPerentage) / 100
-        console.log(percentage);
-        let add_Number_Citadine_Diesel = parseInt(value) * percentage
-        let Sum = add_Number_Citadine_Diesel + parseInt(value)
-        console.log(Sum);
-        let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
-        total.textContent = `${total_Citadine_Diesel} €`
-        newImage_Car.src = '../imgs/CM20200303-d9659-aba32.jpg'
-        console.log(1);
-    }
-    if(car_Name === 'Construction' && EssencePrecentage === '14%'){
-        Discount.textContent =  EssencePrecentage
-        let percentage = parseInt(EssencePrecentage) / 100
-        console.log(percentage);
-        let add_Number_Citadine_Essence = parseInt(value) * percentage
-        let Sum = add_Number_Citadine_Essence + parseInt(value)
-        console.log(Sum);
-        let total_Citadine_Essence = Sum + parseInt(Insurance.textContent)
-        total.textContent = `${total_Citadine_Essence} €`
-        newImage_Car.src = '../imgs/CM20200303-d9659-aba32.jpg'
-        console.log(1);
-    }
-    if(car_Name === 'Trucks' && DieselPerentage === '21%'){
-        Discount.textContent =  DieselPerentage
-        let percentage = parseInt(DieselPerentage) / 100
-        console.log(percentage);
-        let add_Number_Citadine_Diesel = parseInt(value) * percentage
-        let Sum = add_Number_Citadine_Diesel + parseInt(value)
-        console.log(Sum);
-        let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
-        total.textContent = `${total_Citadine_Diesel} €`
-        newImage_Car.src = '../imgs/fastest-trucks-lead.jpg'
-        console.log(1);
-    }
+    // if(car_Name === 'Commercial' && DieselPerentage === '21%'){
+    //     Discount.textContent =  DieselPerentage
+    //     let percentage = parseInt(DieselPerentage) / 100
+    //     console.log(percentage);
+    //     let add_Number_Citadine_Diesel = parseInt(value) * percentage
+    //     let Sum = add_Number_Citadine_Diesel + parseInt(value)
+    //     console.log(Sum);
+    //     let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
+    //     total.textContent = `${total_Citadine_Diesel} €`
+    //     newImage_Car.src = '../imgs/USC80FOT115A021001.jpg'
+    //     console.log(1);
+    // }
+    // if(car_Name === 'Construction' && DieselPerentage === '21%'){
+    //     Discount.textContent =  DieselPerentage
+    //     let percentage = parseInt(DieselPerentage) / 100
+    //     console.log(percentage);
+    //     let add_Number_Citadine_Diesel = parseInt(value) * percentage
+    //     let Sum = add_Number_Citadine_Diesel + parseInt(value)
+    //     console.log(Sum);
+    //     let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
+    //     total.textContent = `${total_Citadine_Diesel} €`
+    //     newImage_Car.src = '../imgs/CM20200303-d9659-aba32.jpg'
+    //     console.log(1);
+    // }
+    // if(car_Name === 'Construction' && EssencePrecentage === '14%'){
+    //     Discount.textContent =  EssencePrecentage
+    //     let percentage = parseInt(EssencePrecentage) / 100
+    //     console.log(percentage);
+    //     let add_Number_Citadine_Essence = parseInt(value) * percentage
+    //     let Sum = add_Number_Citadine_Essence + parseInt(value)
+    //     console.log(Sum);
+    //     let total_Citadine_Essence = Sum + parseInt(Insurance.textContent)
+    //     total.textContent = `${total_Citadine_Essence} €`
+    //     newImage_Car.src = '../imgs/CM20200303-d9659-aba32.jpg'
+    //     console.log(1);
+    // }
+    // if(car_Name === 'Trucks' && DieselPerentage === '21%'){
+    //     Discount.textContent =  DieselPerentage
+    //     let percentage = parseInt(DieselPerentage) / 100
+    //     console.log(percentage);
+    //     let add_Number_Citadine_Diesel = parseInt(value) * percentage
+    //     let Sum = add_Number_Citadine_Diesel + parseInt(value)
+    //     console.log(Sum);
+    //     let total_Citadine_Diesel = Sum + parseInt(Insurance.textContent)
+    //     total.textContent = `${total_Citadine_Diesel} €`
+    //     newImage_Car.src = '../imgs/fastest-trucks-lead.jpg'
+    //     console.log(1);
+    // }
 
-    localStorage.removeItem('discount')
-    localStorage.removeItem('electrique')
-    localStorage.removeItem('HybirdPerc')
-    localStorage.removeItem('Essence')
-    localStorage.removeItem('DieselPer')
-
+   
 
    
 }

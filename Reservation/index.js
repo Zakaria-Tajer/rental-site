@@ -19,37 +19,17 @@ const rent_btn = document.querySelectorAll('#rent-btn')
 const choices = document.querySelectorAll('#choice')
 
 const choice_checked = document.querySelectorAll('#choice-checked')
-// console.log(choice_checked);
+
 const days_wrapper_input = document.getElementById('days')
-
-// for (let i = 0; i < choice_checked.length; i++) {
-//     console.log(choice_checked[i]);
-// }
-
-
-
-
-
 
 
 const hide = document.getElementById('hide')
 const chevron_right = document.getElementById('chevron-right')
+const chevron_filter = document.getElementById('chevron-filter')
 
 const star = document.getElementById('icons-wrapper')
 const Hybrid = document.getElementById('Hybrid')
 console.log(Hybrid);
-
-const customasation = []
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -65,6 +45,10 @@ for (let i = 0; i < choice_checked.length; i++) {
         choice_checked[i].classList.toggle('active')
     })
 }
+chevron_filter.addEventListener('click',()=> {
+    chevron_filter.classList.toggle('active')
+    hide.classList.toggle('active')
+})
 
 
 menu.addEventListener('click', ()=> {
