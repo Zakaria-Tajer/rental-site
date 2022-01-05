@@ -203,7 +203,8 @@ body {
 #days {
     position: absolute;
     top: 30%;
-    right: 6em;
+    /* right: 6em; */
+    left: 75%;
     margin-top: 50px;
     font-size: 25px;
     display: flex;
@@ -381,10 +382,8 @@ body {
         margin-left: auto;
         position: relative;
     }
-    #days {
-        /* position: absolute;
-        top: 40%; */
-    }
+
+    
     .line1 {
         width: 100%;
     }

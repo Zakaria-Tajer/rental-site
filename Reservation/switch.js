@@ -115,9 +115,12 @@ window.onload = ()=> {
         actual_price[3].textContent = '14 €'
         
     }
+    localStorage.setItem('electriEnr', electriquePerc)
+    localStorage.setItem('HybirdPerc', HybirdPerc)
+    localStorage.setItem('Essence', EssencePre)
+    localStorage.setItem('DieselPer', DieselPer)
 
 }
-
 
 const newImage = document.createElement('img')
 const newImage1 = document.createElement('img')
@@ -147,58 +150,42 @@ function Enrgie(Energie,TypeOfEnergie){
             let sum = add_Number_Moto + parseInt(VieValue)
             let total_Moto = sum + 500
             let tota_days = parseInt(days_counter) * total_Moto
-            localStorage.setItem('Total_Of_Sums', tota_days)
             console.log(tota_days);
-        }else {
+            localStorage.setItem('Total_Of_Sums', tota_days)
+        }else if(days_counter <= 1) {
             let percentage = parseInt(TypeOfEnergie) / 100
             let add_Number_Moto = parseInt(VieValue) * percentage
             let sum = add_Number_Moto + parseInt(VieValue)
             let total_Moto = sum + 500
-            localStorage.setItem('Total_Of_Sums', total_Moto)
+            let tota_days = 1 * total_Moto
+            localStorage.setItem('Total_Of_Sums', tota_days)
             console.log(total_Moto);
         }
+        pay_btn[i].addEventListener('click', ()=> {
+            location.assign('./payment/index.html')
+            
+        })
     }
 }
 for (let i = 0; i < Electrique.length; i++) {
-    // Electrique[i].addEventListener('click',()=> {
-    //     localStorage.setItem('electriEnr', electriquePerc)
-    //     Enrgie(Electrique,electriquePerc)
-    // })
 
-    // Hybird[i].addEventListener('click', ()=> {
-    // localStorage.setItem('HybirdPerc', HybirdPerc)
-    // Enrgie(Hybird,HybirdPerc)
-    // })
-
-    // Essence[i].addEventListener('click', ()=> {
-    // localStorage.setItem('Essence', EssencePre)
-    // Enrgie(Essence,EssencePre)
-    // })
-
-    // Diesel[i].addEventListener('click', ()=> {
-    // localStorage.setItem('DieselPer', DieselPer)
-    // Enrgie(Diesel,DieselPer)
-    // })
-
-    pay_btn[i].addEventListener('click', ()=> {
-        location.assign('./payment/index.html')
-        
-    })
 }
+
+
 
 Motorcycle.addEventListener('click',()=> {
     for (let i = 0; i < choice_wrapper.length; i++) {
-            Electrique[i].addEventListener('click',()=> {
-                localStorage.setItem('electriEnr', electriquePerc)
-                Enrgie(Electrique,electriquePerc)
-            })
+        Electrique[i].addEventListener('click',()=> {
+            localStorage.setItem('electriEnr', electriquePerc)
+            Enrgie(Electrique,electriquePerc)
+        })
         Hybird[i].addEventListener('click', ()=> {
             alert('Motocycle Are Not Availbale with this customasation')
         })
         Essence[i].addEventListener('click', ()=> {
             alert('Motocycle Are Not Availbale with this customasation')
-    })
-    Diesel[i].addEventListener('click', ()=> {
+        })
+        Diesel[i].addEventListener('click', ()=> {
         alert('Motocycle Are Not Availbale with this customasation')
     })
 
@@ -232,42 +219,23 @@ Motorcycle.addEventListener('click',()=> {
 citadine.addEventListener('click',()=> {
     for (let i = 0; i < choice_wrapper.length; i++) {
         Electrique[i].addEventListener('click',()=> {
-            localStorage.setItem('electriEnr', electriquePerc)
-            Enrgie(Electrique,electriquePerc)
+        Enrgie(Electrique,electriquePerc)
     })
     Hybird[i].addEventListener('click', ()=> {
-    localStorage.setItem('HybirdPerc', HybirdPerc)
     Enrgie(Hybird,HybirdPerc)
     })
-
+    
     Essence[i].addEventListener('click', ()=> {
-    localStorage.setItem('Essence', EssencePre)
+    
     Enrgie(Essence,EssencePre)
     })
-
+    
     Diesel[i].addEventListener('click', ()=> {
-    localStorage.setItem('DieselPer', DieselPer)
+    
     Enrgie(Diesel,DieselPer)
     })
-
+    
     }
-    // case 'Citadine':
-    //     for (let i = 0; i < localStorage.length; i++) {
-    //         Hybird[i].addEventListener('click', ()=> {
-    //             alert('Motocycle Are Not Availbale with this customasation')
-    //         })
-    //         Essence[i].addEventListener('click', ()=> {
-    //              alert('Motocycle Are Not Availbale with this customasation')
-    //         })
-    //         Electrique[i].addEventListener('click', ()=> {
-    //             localStorage.setItem('electrique', electriquePerc)
-    //         })
-    //         Diesel[i].addEventListener('click', ()=> {
-    //             alert('Motocycle Are Not Availbale with this customasation')
-    //         })
-    //     }
-    //     break
-
 
     localStorage.removeItem('discount')
     
@@ -291,49 +259,27 @@ citadine.addEventListener('click',()=> {
 
 
 compact.addEventListener('click',()=> {
-    localStorage.removeItem('discount')
     for (let i = 0; i < choice_wrapper.length; i++) {
-        Hybird[i].addEventListener('click', ()=> {
-            switch (Car_Name) {
-                case 'Compact':
-                     localStorage.setItem('HybirdPerc', HybirdPerc)
-            default:
-                break;
-            }
-        })
-        Essence[i].addEventListener('click',()=> {
-            switch (Car_Name) {
-                case 'Compact':
-                    localStorage.removeItem('HybirdPerc')
-                    localStorage.removeItem('discount')
-                     localStorage.setItem('Essence', EssencePre)
-                default:
-                    break;
-            }
-        })
-        Diesel[i].addEventListener('click', ()=> {
-            switch (Car_Name) {
-                case 'Compact':
-                    localStorage.removeItem('EssencePre')
-                    localStorage.removeItem('discount')
-                     localStorage.setItem('DieselPer', DieselPer)
-                    break;
-            
-                default:
-                    break;
-            }
-        })
         Electrique[i].addEventListener('click',()=> {
-            switch (Car_Name) {
-                case 'Compact':
-                    alert('Compact Cars Are Not Availbale with this customasation')
-                    break;
-            
-                default:
-                    break;
-            }
-        })
+        alert('Compact is not Availbale with Electrique Custom')
+    })
+    Hybird[i].addEventListener('click', ()=> {
+    localStorage.setItem('HybirdPerc', HybirdPerc)
+    Enrgie(Hybird,HybirdPerc)
+    })
+    
+    Essence[i].addEventListener('click', ()=> {
+    localStorage.setItem('Essence', EssencePre)
+    Enrgie(Essence,EssencePre)
+    })
+    
+    Diesel[i].addEventListener('click', ()=> {
+    localStorage.setItem('DieselPer', DieselPer)
+    Enrgie(Diesel,DieselPer)
+    })
+    
     }
+   
 
     // dataSrorage('7%')
     replaceName('Compact')
@@ -355,48 +301,24 @@ compact.addEventListener('click',()=> {
 
 berline.addEventListener('click',()=> {
     for (let i = 0; i < choice_wrapper.length; i++) {
-        Hybird[i].addEventListener('click', ()=> {
-            switch (Car_Name) {
-                case 'Berline':
-                    localStorage.removeItem('discount')
-                     localStorage.setItem('HybirdPerc', HybirdPerc)
-            default:
-                break;
-            }
-        })
-        Essence[i].addEventListener('click',()=> {
-            switch (Car_Name) {
-                case 'Berline':
-                    localStorage.removeItem('HybirdPerc')
-                    localStorage.removeItem('discount')
-                     localStorage.setItem('Essence', EssencePre)
-                    break;
-                default:
-                    break;
-            }
-        })
-        Diesel[i].addEventListener('click', ()=> {
-            switch (Car_Name) {
-                case 'Berline':
-                    localStorage.removeItem('EssencePre')
-                    localStorage.removeItem('discount')
-                     localStorage.setItem('DieselPer', DieselPer)
-                    break;
-            
-                default:
-                    break;
-            }
-        })
         Electrique[i].addEventListener('click',()=> {
-            switch (Car_Name) {
-                case 'Berline':
-                    alert('Compact Cars Are Not Availbale with this customasation')
-                    break;
-            
-                default:
-                    break;
-            }
-        })
+        alert('Berline is not Availbale with Electrique Custom')
+    })
+    Hybird[i].addEventListener('click', ()=> {
+    // localStorage.setItem('HybirdPerc', HybirdPerc)
+    Enrgie(Hybird,HybirdPerc)
+    })
+    
+    Essence[i].addEventListener('click', ()=> {
+    // localStorage.setItem('Essence', EssencePre)
+    Enrgie(Essence,EssencePre)
+    })
+    
+    Diesel[i].addEventListener('click', ()=> {
+    // localStorage.setItem('DieselPer', DieselPer)
+    Enrgie(Diesel,DieselPer)
+    })
+    
     }
     replaceName('Berline')
     ReplacePrices('20 €')
@@ -418,19 +340,20 @@ berline.addEventListener('click',()=> {
 })
 commercial.addEventListener('click',()=> {
     for (let i = 0; i < choice_wrapper.length; i++) {
-        Diesel[i].addEventListener('click', ()=> {
-            switch (Car_Name) {
-                case 'Commercial':
-                    localStorage.removeItem('EssencePre')
-                    localStorage.removeItem('discount')
-                     localStorage.setItem('DieselPer', DieselPer)
-                    break;
-            
-                default:
-                    break;
-            }
+        Electrique[i].addEventListener('click',()=> {
+            alert('Commercial Car Are Not Availbale with this customasation')
         })
-        
+        Hybird[i].addEventListener('click', ()=> {
+            alert('Commercial Car Are Not Availbale with this customasation')
+        })
+        Essence[i].addEventListener('click', ()=> {
+            alert('Commercial Car Are Not Availbale with this customasation')
+        })
+        Diesel[i].addEventListener('click', ()=> {
+            // localStorage.setItem('DieselPer', DieselPer)
+            Enrgie(Diesel,DieselPer)
+    })
+
     }
     replaceName('Commercial')
     ReplacePrices('16 €')
@@ -453,30 +376,23 @@ commercial.addEventListener('click',()=> {
 
 construction.addEventListener('click',()=> {
     for (let i = 0; i < choice_wrapper.length; i++) {
-        Diesel[i].addEventListener('click', ()=> {
-            switch (Car_Name) {
-                case 'Construction':
-                    localStorage.removeItem('EssencePre')
-                    localStorage.removeItem('discount')
-                     localStorage.setItem('DieselPer', DieselPer)
-                    break;
-            
-                default:
-                    break;
-            }
-        })
-        Essence[i].addEventListener('click',()=> {
-            switch (Car_Name) {
-                case 'Commercial':
-                    localStorage.removeItem('HybirdPerc')
-                    localStorage.removeItem('discount')
-                     localStorage.setItem('Essence', EssencePre)
-                    break;
-                default:
-                    break;
-            }
-        })
-        
+        Electrique[i].addEventListener('click',()=> {
+        alert('Construction Machines is not Availbale with Electrique Custom')
+    })
+    Hybird[i].addEventListener('click', ()=> {
+    alert('Construction Machines is not Availbale with Electrique Custom')
+    })
+    
+    Essence[i].addEventListener('click', ()=> {
+    // localStorage.setItem('Essence', EssencePre)
+    Enrgie(Essence,EssencePre)
+    })
+    
+    Diesel[i].addEventListener('click', ()=> {
+    // localStorage.setItem('DieselPer', DieselPer)
+    Enrgie(Diesel,DieselPer)
+    })
+    
     }
     replaceName('Construction')
     ReplacePrices('900 €')
@@ -495,20 +411,23 @@ construction.addEventListener('click',()=> {
 })
 
 trucks.addEventListener('click',()=> {
-    for (let i = 0; i < choice_wrapper; i++) {
-        Diesel[i].addEventListener('click', ()=> {
-            switch (Car_Name) {
-                case 'Trucks':
-                    localStorage.removeItem('EssencePre')
-                    localStorage.removeItem('discount')
-                     localStorage.setItem('DieselPer', DieselPer)
-                    break;
-            
-                default:
-                    break;
-            }
-        })
-        
+    for (let i = 0; i < choice_wrapper.length; i++) {
+        Electrique[i].addEventListener('click',()=> {
+        alert('Trucks is not Availbale with Electrique Custom')
+    })
+    Hybird[i].addEventListener('click', ()=> {
+    alert('Trucks is not Availbale with Electrique Custom')
+    })
+    
+    Essence[i].addEventListener('click', ()=> {
+        alert('Trucks is not Availbale with Electrique Custom')
+    })
+    
+    Diesel[i].addEventListener('click', ()=> {
+    // localStorage.setItem('DieselPer', DieselPer)
+    Enrgie(Diesel,DieselPer)
+    })
+    
     }
     replaceName('Trucks')
     ReplacePrices('250 €')
