@@ -34,7 +34,6 @@
     width: 100%;
     height: 100vh;
     position:relative;
-    
 }
 .hero img {
     width: 100%;
@@ -62,25 +61,20 @@
     z-index: 1;
 }
 .wrapper {
-    width: 100%;
-    background-color: aqua;
+    width: 1000%;
     height: 100%;
-    display: flex;
-    animation: 10s right-slide infinite;
+    background-color: blueviolet;
     position: relative;
-
+    animation: 100s cards infinite;
+    display: flex;
 }
 
-.wrapper img {
-    height: auto;
-    width: 100%;
-    object-fit: cover;
-}
 
- @keyframes right-slide {
+ @keyframes cards {
     0% {
         left: 0;
     }
+
     20%{
         left: -100%;
     }
@@ -91,15 +85,17 @@
         left: -300%;
     }
     80% {
-        left: -400%;
+        left: -350%;
     }
 }
+
+
 .wrapper2 {
     width: 100%;
     background-color: aqua;
     height: 100%;
     display: flex;
-    animation: 10s second-slider infinite;
+    animation: 100s second-slider infinite;
     position: relative;
 }
 .wrapper2 img {
@@ -119,20 +115,16 @@
     width: 100%;
     height: 100%;
     display: flex;
-    animation: 10s second-slider infinite;
+    animation: 50s second-slider infinite;
     position: relative;
 }
-.wrapper2 img {
-    height: auto;
-    width: 100%;
-    object-fit: cover;
-}
+
 @keyframes second-slider {
     0% {
         left: 0;
     }
     20%{
-        left: -100%;
+        left: -60%;
     }
 
 }

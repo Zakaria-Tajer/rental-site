@@ -5,7 +5,7 @@ const berline = document.getElementById('berline')
 const commercial = document.getElementById('commercial')
 const construction = document.getElementById('construction')
 const trucks = document.getElementById('trucks')
-
+const pop_btn = document.querySelectorAll('#popup-btn')
 
 const days = document.getElementById('days-wrapper')
 const add_days = document.getElementById('add_days')
@@ -34,6 +34,7 @@ const Hybird = document.querySelectorAll('.Hybrid')
 const Essence = document.querySelectorAll('.Essence')
 const Diesel = document.querySelectorAll('.Diesel')
 const Electrique = document.querySelectorAll('.Electrique')
+const autos = document.querySelectorAll('.automatique')
 console.log(choice_wrapper)
 
 
@@ -115,10 +116,10 @@ window.onload = ()=> {
         actual_price[3].textContent = '14 €'
         
     }
-    localStorage.setItem('electriEnr', electriquePerc)
-    localStorage.setItem('HybirdPerc', HybirdPerc)
-    localStorage.setItem('Essence', EssencePre)
-    localStorage.setItem('DieselPer', DieselPer)
+    // localStorage.setItem('electriEnr', electriquePerc)
+    // localStorage.setItem('HybirdPerc', HybirdPerc)
+    // localStorage.setItem('Essence', EssencePre)
+    // localStorage.setItem('DieselPer', DieselPer)
 
 }
 
@@ -142,6 +143,7 @@ for (let i = 0; i < actual_price.length; i++) {
 
 const days_counter = localStorage.getItem('days')
 let VieValue  = localStorage.getItem('actual_price')
+let tota_days;
 function Enrgie(Energie,TypeOfEnergie){
     for (let i = 0; i < Energie.length; i++) {
         if(days_counter > 1){
@@ -149,7 +151,7 @@ function Enrgie(Energie,TypeOfEnergie){
             let add_Number_Moto = parseInt(VieValue) * percentage
             let sum = add_Number_Moto + parseInt(VieValue)
             let total_Moto = sum + 500
-            let tota_days = parseInt(days_counter) * total_Moto
+            tota_days = parseInt(days_counter) * total_Moto
             console.log(tota_days);
             localStorage.setItem('Total_Of_Sums', tota_days)
         }else if(days_counter <= 1) {
@@ -157,7 +159,7 @@ function Enrgie(Energie,TypeOfEnergie){
             let add_Number_Moto = parseInt(VieValue) * percentage
             let sum = add_Number_Moto + parseInt(VieValue)
             let total_Moto = sum + 500
-            let tota_days = 1 * total_Moto
+            tota_days = 1 * total_Moto
             localStorage.setItem('Total_Of_Sums', tota_days)
             console.log(total_Moto);
         }
@@ -167,14 +169,35 @@ function Enrgie(Energie,TypeOfEnergie){
         })
     }
 }
-for (let i = 0; i < Electrique.length; i++) {
-
-}
-
+const hyb = document.querySelectorAll('#Hybrid-text')
+const es = document.querySelectorAll('#Essence-text')
+const dis = document.querySelectorAll('#Diesel-text')
+const auto = document.querySelectorAll('#Automatique-text')
+const ecl = document.querySelectorAll('#Electrique-text')
 
 
 Motorcycle.addEventListener('click',()=> {
-    for (let i = 0; i < choice_wrapper.length; i++) {
+    for (let i = 0; i < hyb.length; i++) {
+        ecl[i].classList.remove('active')
+        Electrique[i].classList.remove('active')
+        hyb[i].classList.toggle('active')
+        es[i].classList.toggle('active')
+        dis[i].classList.toggle('active')
+        auto[i].classList.toggle('active')
+
+        Hybird[i].classList.add('non-w')
+        Essence[i].classList.add('non-w')
+        Diesel[i].classList.add('non-w')
+        autos[i].classList.add('non-w')
+
+        // pop_btn[i].classList.remove('active')
+        // Hybird[i].classList.toggle('active')
+        // Essence[i].classList.toggle('active')
+        // Diesel[i].classList.toggle('active')
+        // autos[i].classList.toggle('active')
+    }
+    for (let i = 0; i < Hybird.length; i++) {
+
         Electrique[i].addEventListener('click',()=> {
             localStorage.setItem('electriEnr', electriquePerc)
             Enrgie(Electrique,electriquePerc)
@@ -207,31 +230,44 @@ Motorcycle.addEventListener('click',()=> {
     }
     // history.pushState(null, null,'Motorcycle')
     // dataSrorage('7%') 
-    //  localStorage.removeItem('discount')
-    // localStorage.removeItem('electrique')
-    // localStorage.removeItem('HybirdPerc')
-    // localStorage.removeItem('Essence')
-    // localStorage.removeItem('DieselPer')
+   
 
 })
 
 
 citadine.addEventListener('click',()=> {
+    for (let i = 0; i < wrapper.length; i++) {
+        ecl[i].classList.toggle('active')
+        Electrique[i].classList.toggle('active')
+        hyb[i].classList.remove('active')
+        es[i].classList.remove('active')
+        dis[i].classList.remove('active')
+        auto[i].classList.remove('active')
+        pop_btn[i].classList.toggle('active')
+
+        Hybird[i].classList.remove('active')
+        Essence[i].classList.remove('active')
+        Diesel[i].classList.remove('active')
+        autos[i].classList.remove('active')
+        Electrique[i].classList.add('non-w')
+    }
     for (let i = 0; i < choice_wrapper.length; i++) {
         Electrique[i].addEventListener('click',()=> {
         Enrgie(Electrique,electriquePerc)
     })
     Hybird[i].addEventListener('click', ()=> {
+        localStorage.setItem('HybirdPerc', HybirdPerc)
+
     Enrgie(Hybird,HybirdPerc)
     })
     
     Essence[i].addEventListener('click', ()=> {
-    
+        localStorage.setItem('Essence', EssencePre)
     Enrgie(Essence,EssencePre)
     })
     
     Diesel[i].addEventListener('click', ()=> {
-    
+        localStorage.setItem('DieselPer', DieselPer)
     Enrgie(Diesel,DieselPer)
     })
     
@@ -259,6 +295,24 @@ citadine.addEventListener('click',()=> {
 
 
 compact.addEventListener('click',()=> {
+    for (let i = 0; i < wrapper.length; i++) {
+        ecl[i].classList.toggle('active')
+        Electrique[i].classList.toggle('active')
+        hyb[i].classList.remove('active')
+        es[i].classList.remove('active')
+        dis[i].classList.remove('active')
+        auto[i].classList.remove('active')
+        pop_btn[i].classList.toggle('active')
+
+
+        Hybird[i].classList.remove('active')
+        Essence[i].classList.remove('active')
+        Diesel[i].classList.remove('active')
+        autos[i].classList.remove('active')
+        Electrique[i].classList.add('non-w')
+
+
+    }
     for (let i = 0; i < choice_wrapper.length; i++) {
         Electrique[i].addEventListener('click',()=> {
         alert('Compact is not Availbale with Electrique Custom')
@@ -300,22 +354,38 @@ compact.addEventListener('click',()=> {
 })
 
 berline.addEventListener('click',()=> {
+    for (let i = 0; i < wrapper.length; i++) {
+        ecl[i].classList.toggle('active')
+        Electrique[i].classList.toggle('active')
+        hyb[i].classList.remove('active')
+        es[i].classList.remove('active')
+        dis[i].classList.remove('active')
+        auto[i].classList.remove('active')
+        pop_btn[i].classList.toggle('active')
+
+
+        Hybird[i].classList.remove('active')
+        Essence[i].classList.remove('active')
+        Diesel[i].classList.remove('active')
+        autos[i].classList.toggle('active')
+        Electrique[i].classList.add('non-w')
+    }
     for (let i = 0; i < choice_wrapper.length; i++) {
         Electrique[i].addEventListener('click',()=> {
         alert('Berline is not Availbale with Electrique Custom')
     })
     Hybird[i].addEventListener('click', ()=> {
-    // localStorage.setItem('HybirdPerc', HybirdPerc)
+    localStorage.setItem('HybirdPerc', HybirdPerc)
     Enrgie(Hybird,HybirdPerc)
     })
     
     Essence[i].addEventListener('click', ()=> {
-    // localStorage.setItem('Essence', EssencePre)
+    localStorage.setItem('Essence', EssencePre)
     Enrgie(Essence,EssencePre)
     })
     
     Diesel[i].addEventListener('click', ()=> {
-    // localStorage.setItem('DieselPer', DieselPer)
+    localStorage.setItem('DieselPer', DieselPer)
     Enrgie(Diesel,DieselPer)
     })
     
@@ -339,6 +409,21 @@ berline.addEventListener('click',()=> {
    
 })
 commercial.addEventListener('click',()=> {
+    for (let i = 0; i < wrapper.length; i++) {
+        ecl[i].classList.toggle('active')
+        Electrique[i].classList.toggle('active')
+        hyb[i].classList.toggle('active')
+        es[i].classList.toggle('active')
+        dis[i].classList.remove('active')
+        auto[i].classList.toggle('active')
+        pop_btn[i].classList.toggle('active')
+
+        Hybird[i].classList.add('non-w')
+        Essence[i].classList.add('non-w')
+        Diesel[i].classList.remove('active')
+        autos[i].classList.add('non-w')
+        Electrique[i].classList.add('non-w')
+    }
     for (let i = 0; i < choice_wrapper.length; i++) {
         Electrique[i].addEventListener('click',()=> {
             alert('Commercial Car Are Not Availbale with this customasation')
@@ -350,7 +435,7 @@ commercial.addEventListener('click',()=> {
             alert('Commercial Car Are Not Availbale with this customasation')
         })
         Diesel[i].addEventListener('click', ()=> {
-            // localStorage.setItem('DieselPer', DieselPer)
+            localStorage.setItem('DieselPer', DieselPer)
             Enrgie(Diesel,DieselPer)
     })
 
@@ -375,6 +460,23 @@ commercial.addEventListener('click',()=> {
 })
 
 construction.addEventListener('click',()=> {
+    for (let i = 0; i < wrapper.length; i++) {
+        ecl[i].classList.toggle('active')
+        Electrique[i].classList.toggle('active')
+        hyb[i].classList.toggle('active')
+        es[i].classList.remove('active')
+        dis[i].classList.remove('active')
+        auto[i].classList.toggle('active')
+        pop_btn[i].classList.toggle('active')
+
+
+        Hybird[i].classList.add('non-w')
+        Essence[i].classList.remove('active')
+        Diesel[i].classList.remove('active')
+        autos[i].classList.add('non-w')
+        Electrique[i].classList.add('non-w')
+
+    }
     for (let i = 0; i < choice_wrapper.length; i++) {
         Electrique[i].addEventListener('click',()=> {
         alert('Construction Machines is not Availbale with Electrique Custom')
@@ -384,12 +486,12 @@ construction.addEventListener('click',()=> {
     })
     
     Essence[i].addEventListener('click', ()=> {
-    // localStorage.setItem('Essence', EssencePre)
+    localStorage.setItem('Essence', EssencePre)
     Enrgie(Essence,EssencePre)
     })
     
     Diesel[i].addEventListener('click', ()=> {
-    // localStorage.setItem('DieselPer', DieselPer)
+    localStorage.setItem('DieselPer', DieselPer)
     Enrgie(Diesel,DieselPer)
     })
     
@@ -411,6 +513,24 @@ construction.addEventListener('click',()=> {
 })
 
 trucks.addEventListener('click',()=> {
+    for (let i = 0; i < wrapper.length; i++) {
+        ecl[i].classList.toggle('active')
+        Electrique[i].classList.toggle('active')
+        hyb[i].classList.toggle('active')
+        es[i].classList.toggle('active')
+        dis[i].classList.remove('active')
+        auto[i].classList.toggle('active')
+        pop_btn[i].classList.toggle('active')
+
+
+
+        Hybird[i].classList.add('non-w')
+        Essence[i].classList.add('non-w')
+        Electrique[i].classList.add('non-w')
+        autos[i].classList.add('non-w')
+
+
+    }
     for (let i = 0; i < choice_wrapper.length; i++) {
         Electrique[i].addEventListener('click',()=> {
         alert('Trucks is not Availbale with Electrique Custom')
@@ -424,7 +544,7 @@ trucks.addEventListener('click',()=> {
     })
     
     Diesel[i].addEventListener('click', ()=> {
-    // localStorage.setItem('DieselPer', DieselPer)
+    localStorage.setItem('DieselPer', DieselPer)
     Enrgie(Diesel,DieselPer)
     })
     

@@ -198,11 +198,11 @@ body {
     height: 1px;
     background-color: gray;
     position: absolute;
-    top: 25%;
+    top: 35%;
 }
 #days {
     position: absolute;
-    top: 30%;
+    top: 50%;
     /* right: 6em; */
     left: 75%;
     margin-top: 50px;

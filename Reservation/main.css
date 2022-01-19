@@ -603,12 +603,55 @@ body {
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 }
 #popup-btn {
-    position: absolute;
-    top: -132.8%;
+    /* position: relative; */
+    /* top: 67.8%; */
     right: 40%;
+    transform: translateY(-240%);
+}
+#popup-btn.active {
+    /* position: relative; */
+    top: 23%;
 }
 
 #hide-boxes.active {
+    display: none;
+}
+#Hybrid-text.active {
+    display: none;
+}
+#Essence-text.active {
+    display: none;
+}
+#Diesel-text.active {
+    display: none;
+}
+#Automatique-text.active {
+    display: none;
+}
+#Electrique-text.active {
+    display: none;
+}
+
+/* .Hybrid.active {
+    display: none;
+}
+.Essence.active {
+    display: none;
+}
+
+.Diesel.active {
+    display: none;
+}
+
+.automatique.active {
+    display: none;
+}
+.Electrique.active {
+    display: none;
+} */
+
+/*   */
+.non-w {
     display: none;
 }
 
